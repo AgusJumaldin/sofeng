@@ -1,30 +1,35 @@
-// backend/routes/productRoutes.js
 import express from "express";
 import Product from "../models/Product.js";
 
 const router = express.Router();
 
-// GET /api/products/:bodyType - Get recommendations
-router.get("/:bodyType", async (req, res) => {
+// GET all products, with optional ?bodyType=
+router.get("/", async (req, res) => {
   try {
-    const { bodyType } = req.params;
-    const products = await Product.find({ 
-      bodyType: bodyType 
-    }).limit(10);
-    
+    const { bodyType } = req.query;
+
+    const filter = {};
+    if (bodyType) {
+      filter.bodyType = bodyType;
+    }
+
+    const products = await Product.find(filter);
     res.json(products);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
-// POST /api/products - Add product (for seeding)
+// POST create product (for seeding / admin panel)
 router.post("/", async (req, res) => {
   try {
-    const product = await Product.create(req.body);
-    res.status(201).json(product);
+    const product = new Product(req.body);
+    const saved = await product.save();
+    res.status(201).json(saved);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    console.error(err);
+    res.status(400).json({ message: "Invalid product data" });
   }
 });
 

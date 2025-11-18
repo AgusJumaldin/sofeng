@@ -1,15 +1,12 @@
-// backend/server.js
 import express from "express";
-import dotenv from "dotenv";
+import mongoose from "mongoose";
 import cors from "cors";
-import connectDB from "./config/db.js";
-import measurementRoutes from "./routes/measurementRoutes.js";
+import dotenv from "dotenv";
+
 import productRoutes from "./routes/productRoutes.js";
-import path from "path";
-import { fileURLToPath } from 'url';
+import measurementRoutes from "./routes/measurementRoutes.js";
 
 dotenv.config();
-connectDB();
 
 const app = express();
 
@@ -17,24 +14,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Health check route
-app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "HerShape API is running" });
-});
+// MongoDB connection
+const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017/hershape";
 
-app.use("/api/measurements", measurementRoutes);
+mongoose
+  .connect(mongoUri)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB error:", err.message));
+
+// Routes
 app.use("/api/products", productRoutes);
+app.use("/api/measurements", measurementRoutes);
+
+// Health check
+app.get("/", (req, res) => {
+  res.send("Backend API is running...");
+});
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const app = express();
-
-// Serve static images
-app.use('/images', express.static(path.join(__dirname, 'public/images')));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
