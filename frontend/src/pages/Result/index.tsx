@@ -1,40 +1,47 @@
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
+import image7 from "@/assets/HourglassBodyType/7.png";
+import image1 from "@/assets/HourglassBodyType/1.png";
+import image2 from "@/assets/HourglassBodyType/2.png";
+import image3 from "@/assets/HourglassBodyType/3.png";
+import image4 from "@/assets/HourglassBodyType/4.png";
+import image5 from "@/assets/HourglassBodyType/5.png";
+import image6 from "@/assets/HourglassBodyType/6.png";
 
-const Result = () => {
+
+const HourglassBodyType = () => {
   const navigate = useNavigate();
 
-  const recommendations = [
+  const products = [
     {
       name: "Long Sleeve Off Shouldered Top",
-      price: "IDR 85.800",
-      image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&q=80"
+      price: "IDR 85.900",
+      image: image1
     },
     {
       name: "Peplum Sleeveless Top",
       price: "IDR 199.900",
-      image: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&q=80"
+      image: image2
     },
     {
       name: "Embroidered Button Up Camisole",
       price: "IDR 89.950",
-      image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80"
+      image: image3
     },
     {
       name: "Plaid Checks Midi Skirt",
-      price: "IDR 289.000",
-      image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&q=80"
+      price: "IDR 299.900",
+      image: image4
     },
     {
       name: "Boot Cut Flared Denim Pants",
       price: "IDR 164.950",
-      image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&q=80"
+      image: image5
     },
     {
       name: "Contrast Rib Mini Dress",
       price: "IDR 299.900",
-      image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&q=80"
+      image: image6
     }
   ];
 
@@ -55,57 +62,57 @@ const Result = () => {
         </div>
       </header>
 
-      {/* Result Hero Section */}
+      {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="text-5xl font-bold text-center text-foreground mb-12">
-          Your Body Type Is Hourglass!
+        <h1 className="text-4xl font-bold text-foreground text-center">
+          Hourglass Body Type
         </h1>
-        
-        <div className="max-w-4xl mx-auto mb-12">
-          <img 
-            src="https://images.unsplash.com/photo-1505156868547-9b49f4df4e04?w=1200&q=80" 
-            alt="Aesthetic image with passion fruit" 
-            className="rounded-lg shadow-xl w-full h-96 object-cover"
+      </section>
+
+      {/* Hero Image */}
+      <section className="container mx-auto w-[1278px] h-[639px]">
+        <div className="bg-muted/20 rounded-lg p-8 flex justify-center">
+          <img
+            src={image7}
+            alt="Hourglass Body Type"
+            className="w-full rounded-lg"
           />
         </div>
+      </section>
 
-        <div className="max-w-3xl mx-auto text-justify leading-relaxed text-muted-foreground mb-16">
-          <p>
-            Your hourglass body shape is beautifully balanced, your shoulders and hips align, 
-            while your waist adds that natural definition everyone admires. To accentuate your 
-            figure, opt for wrap dresses, crop tops, or high-waisted jeans that hug your curves 
-            in all the right places. Fitted silhouettes and soft fabrics will highlight your 
-            natural balance without compromising comfort. Whether you're dressing up for a night 
-            out or keeping it casual, you shine when your style celebrates your shape.
-          </p>
-        </div>
+      {/* Description */}
+      <section className="container mx-auto px-6 mb-16">
+        <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+          Your hourglass body shape is beautifully balanced, your shoulders and hips align, while your waist adds that natural definition everyone admires. To accentuate your figure, opt for wrap dresses, crop tops, or high-waisted jeans that hug your curves in all the right places. Fitted silhouettes and soft fabrics will highlight your natural balance without compromising comfort. Whether you're dressing up for a night out or keeping it casual, you shine when your style celebrates your shape.
+        </p>
+      </section>
 
-        {/* Recommendations Section */}
-        <div>
-          <h2 className="text-3xl font-bold text-foreground mb-8">
-            Pieces that we recommend:
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recommendations.map((item, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="bg-muted rounded-lg overflow-hidden mb-4 aspect-[3/4]">
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="font-semibold text-foreground mb-1">{item.name}</h3>
-                <p className="text-muted-foreground">{item.price}</p>
+      {/* Products */}
+      <section className="container mx-auto px-6 pb-16">
+        <h2 className="text-3xl font-bold text-foreground mb-8">
+          Pieces that we recommend:
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product, index) => (
+            <div key={index} className="bg-background rounded-lg overflow-hidden shadow-md">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-80 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="font-semibold text-foreground mb-2">
+                  {product.name}
+                </h3>
+                <p className="text-muted-foreground">{product.price}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[hsl(0,65%,30%)] text-white py-8 mt-16">
+      <footer className="bg-[hsl(0,65%,30%)] text-white py-8">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center">
             <div className="text-lg font-semibold">HerShape X COLORBOX</div>
@@ -122,4 +129,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export default HourglassBodyType;
