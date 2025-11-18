@@ -16,32 +16,38 @@ const HourglassBodyType = () => {
     {
       name: "Long Sleeve Off Shouldered Top",
       price: "IDR 85.900",
-      image: image1
+      image: image1,
+	  url: "https://colorbox.co.id/products/long-sleeve-off-shoulder-top-dark-red-25f?srsltid=AfmBOopLxiymXA1Q2qnOwuX0H2jqQuRaH_N6xbCU4ngoSrEkC3vCJeTc"
     },
     {
       name: "Peplum Sleeveless Top",
       price: "IDR 199.900",
-      image: image2
+      image: image2,
+	  url: "https://colorbox.co.id/products/peplum-sleeveless-top-black-25i?_pos=1&_sid=824d07a6d&_ss=r"
     },
     {
       name: "Embroidered Button Up Camisole",
       price: "IDR 89.950",
-      image: image3
+      image: image3,
+	  url: "https://colorbox.co.id/products/embroidered-button-up-camisole-off-white-25e?_pos=2&_sid=e59bf7aaa&_ss=r"
     },
     {
       name: "Plaid Checks Midi Skirt",
       price: "IDR 299.900",
-      image: image4
+      image: image4,
+	  url: "https://colorbox.co.id/products/plaid-checks-midi-skirt-brown-25j?_pos=1&_sid=387cf8f09&_ss=r"
     },
     {
       name: "Boot Cut Flared Denim Pants",
       price: "IDR 164.950",
-      image: image5
+      image: image5,
+	  url: "https://colorbox.co.id/products/boot-cut-flared-denim-pants-dark-blue-25e?_pos=1&_sid=be198eba3&_ss=r"
     },
     {
       name: "Contrast Rib Mini Dress",
       price: "IDR 299.900",
-      image: image6
+      image: image6,
+	  url: "https://colorbox.co.id/products/contrast-rib-mini-dress-black-25h?_pos=1&_sid=3b8c0a31c&_ss=r"
     }
   ];
 
@@ -93,20 +99,25 @@ const HourglassBodyType = () => {
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <div key={index} className="bg-background rounded-lg overflow-hidden shadow-md">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-semibold text-foreground mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-muted-foreground">{product.price}</p>
-              </div>
-            </div>
+          {products.map((product, index) => (<a
+    key={index}
+    href={product.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+  >
+    <img
+      src={product.image}
+      alt={product.name}
+      className="w-full h-80 object-cover"
+    />
+    <div className="p-4">
+      <h3 className="font-semibold text-foreground mb-2">
+        {product.name}
+      </h3>
+      <p className="text-muted-foreground">{product.price}</p>
+    </div>
+  </a>
           ))}
         </div>
       </section>

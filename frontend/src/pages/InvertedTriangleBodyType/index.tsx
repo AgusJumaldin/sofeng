@@ -15,32 +15,38 @@ const InvertedTriangleBodyType = () => {
     {
       name: "Two Tone Cropped Cardigan",
       price: "IDR 229.900",
-      image: image1
+      image: image1,
+	  url: "https://colorbox.co.id/products/two-tone-cropped-cardigan-dark-grey-25f?_pos=1&_sid=0f266e265&_ss=r"
     },
     {
       name: "Cropped Halter Vest",
       price: "IDR 159.900",
-      image: image2
+      image: image2,
+	  url: "https://colorbox.co.id/products/cropped-halter-vest-taupe-25g?_pos=1&_sid=58976b831&_ss=r"
     },
     {
 	  name: "Tied Up Long Sleeve Cardigan",
       price: "IDR 259.900",
-      image: image6
+      image: image6,
+	  url: "https://colorbox.co.id/products/tied-up-long-sleeve-cardigan-green-25e?_pos=1&_sid=287b32a8f&_ss=r"
 	},
 	{
       name: "Front Pleats Corduroy Shorts",
       price: "IDR 229.990",
-      image: image3
+      image: image3,
+	  url: "https://colorbox.co.id/products/front-pleats-corduroy-shorts-lt-grey-25h?_pos=2&_sid=757333d02&_ss=r"
     },
     {
       name: "A-Line Satin Long Skirt",
       price: "IDR 209.900",
-      image: image4
+      image: image4,
+	  url: "https://colorbox.co.id/products/a-line-satin-long-skirt-beige-25g?_pos=1&_sid=038628e5a&_ss=r"
     },
     {
       name: "Box Pleated Mini Skort",
       price: "IDR 199.900",
-      image: image5
+      image: image5,
+	  url: "https://colorbox.co.id/products/box-pleated-mini-skort-dark-brown-25h?_pos=3&_sid=9ac6c2fa9&_ss=r"
     }
   ];
 
@@ -93,19 +99,25 @@ const InvertedTriangleBodyType = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="bg-background rounded-lg overflow-hidden shadow-md">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-semibold text-foreground mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-muted-foreground">{product.price}</p>
-              </div>
-            </div>
+            <a
+    key={index}
+    href={product.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+  >
+    <img
+      src={product.image}
+      alt={product.name}
+      className="w-full h-80 object-cover"
+    />
+    <div className="p-4">
+      <h3 className="font-semibold text-foreground mb-2">
+        {product.name}
+      </h3>
+      <p className="text-muted-foreground">{product.price}</p>
+    </div>
+  </a>
           ))}
         </div>
       </section>

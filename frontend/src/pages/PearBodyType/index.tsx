@@ -15,33 +15,39 @@ const PearBodyType = () => {
     {
       name: "Puff Sleeve Blouse with Lace Trim",
       price: "IDR 179.900",
-      image: image1
+      image: image1,
+	  url: "https://colorbox.co.id/products/puff-sleeve-blouse-with-lace-trim-lt-pink-25h?_pos=10&_sid=10945b996&_ss=r"
     },
     {
 	  name: "Button Up Wide Collar Blouse",
       price: "IDR 179.900",
-      image: image4
+      image: image4,
+	  url: "https://colorbox.co.id/products/button-up-wide-collar-blouse-lt-blue-25g?_pos=1&_sid=ce76dd0ae&_ss=r"
     },
     {
 	  name: "High Neck Long Sleeve Top",
       price: "IDR 99.900",
-      image: image5
+      image: image5,
+	  url: "https://colorbox.co.id/products/high-neck-long-sleeve-top-beige-22o?_pos=1&_sid=93529cb0e&_ss=r"
     },
     {
 	  name: "Off Shoulder Mini Balloon Dress",
       price: "IDR 279.900",
-      image: image3
+      image: image3,
+	  url: "https://colorbox.co.id/products/off-shoulder-mini-balloon-dress-black-25e?_pos=3&_sid=6d66d78d5&_ss=r&variant=46700421415170"
     },
     {
 	  name: "Frayed High Waist Baggy Jeans",
       price: "IDR 329.900",
-      image: image2
+      image: image2,
+	  url: "https://colorbox.co.id/products/frayed-high-waist-baggy-jeans-ecru-25e?_pos=1&_sid=05ec46873&_ss=r"
 
     },
     {
       name: "Regular Fit Basic Short Pants",
       price: "IDR 299.900",
-      image: image6
+      image: image6,
+	  url: "https://colorbox.co.id/products/regular-fit-basic-short-pants-sage-25g"
     }
   ];
 

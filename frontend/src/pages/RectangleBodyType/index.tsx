@@ -15,32 +15,38 @@ const RectangleBodyType = () => {
     {
 	  name: "V-Neck Long Sleeve Wrap Blouse",
       price: "IDR 179.900",
-      image: image5
+      image: image5,
+	  url: "https://colorbox.co.id/products/v-neck-long-sleeve-wrap-blouse-lt-brown-25c?_pos=1&_sid=3b69cb4bc&_ss=r"
     },
     {
 	  name: "Ruffled Sleeveless Blouse",
       price: "IDR 149.900",
-      image: image4
+      image: image4,
+	  url: "https://colorbox.co.id/products/ruffled-sleeveless-blouse-green-25h?_pos=2&_sid=c22bd3bb7&_ss=r"
     },
     {
       name: "Oversized Twill Blazer",
       price: "IDR 229.900",
-      image: image3
+      image: image3,
+	  url: "https://colorbox.co.id/products/oversized-twill-blazer-taupe-25g?_pos=1&_sid=789854a1f&_ss=r"
     },
     {
 	  name: "Regular Fit Flared Denim Pants",
       price: "IDR 329.900",
-      image: image2
+      image: image2,
+	  url: "https://colorbox.co.id/products/regular-fit-flared-denim-pants-black-25i?_pos=1&_sid=fcb8b25fc&_ss=r"
     },
     {
 	  name: "Printed Tier Mini Skirt",
       price: "IDR 249.900",
-      image: image1
+      image: image1,
+	  url: "https://colorbox.co.id/products/printed-tier-mini-skirt-multicolor-25b?_pos=7&_sid=83bee930a&_ss=r"
     },
     {
       name: "Ruffle Tiered Mini Skirt",
       price: "IDR 249.900",
-      image: image6
+      image: image6,
+	  url: "https://colorbox.co.id/products/ruffle-tiered-mini-skirt-beige-24i?_pos=1&_sid=19da98c95&_ss=r"
     }
   ];
 
@@ -93,19 +99,25 @@ const RectangleBodyType = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="bg-background rounded-lg overflow-hidden shadow-md">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-semibold text-foreground mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-muted-foreground">{product.price}</p>
-              </div>
-            </div>
+            <a
+    key={index}
+    href={product.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+  >
+    <img
+      src={product.image}
+      alt={product.name}
+      className="w-full h-80 object-cover"
+    />
+    <div className="p-4">
+      <h3 className="font-semibold text-foreground mb-2">
+        {product.name}
+      </h3>
+      <p className="text-muted-foreground">{product.price}</p>
+    </div>
+  </a>
           ))}
         </div>
       </section>
