@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-[hsl(0,65%,30%)] text-white py-4 px-8">
+    <header className="bg-[hsl(0,65%,30%)] text-white py-8 px-8">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-noto">
+        <Link to="/" className="text-xl font-noto -ml-20">
           HerShape <span className="font-zenkaku font-bold">x COLORBOX</span>
         </Link>
         <nav className="flex gap-8">

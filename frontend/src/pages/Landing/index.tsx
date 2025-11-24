@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import image12 from "@/assets/landing/image12.png";
 import image4 from "@/assets/landing/11.png";
 import image5 from "@/assets/landing/image5.png";
@@ -19,7 +20,7 @@ const Landing = () => {
     {
       name: "Hourglass",
       image: image5,
-	  route: "/body-types/Hourglass"
+	  route: "/body-types/hourglass"
     },
     {
       name: "Pear",
@@ -52,15 +53,15 @@ const Landing = () => {
       <section className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div>
-            <h1 className="font-zenkaku text-5xl font-bold text-foreground mb-4">
+            <h1 className="font-zenkaku text-5xl font-bold text-[#2E2E2E] mb-4">
               HerShape x COLORBOX
             </h1>
-            <h2 className="font-merriweathersans text-3xl text-muted-foreground mb-6">
+            <h2 className="font-merriweathersans text-3xl text-[#000000]/75 mb-6">
               Discover Your Perfect Fit, Virtually
             </h2>
-            <p className="font-inter text-muted-foreground mb-8 leading-relaxed">
-              Visualize your body in 3D, find your body type, and explore outfit
-              recommendations made just for you with Colorbox
+            <p className="font-inter mb-8 text-[#000000]/75 leading-relaxed">
+              Visualize your body in 3D, find your body type, and explore outfit 
+			  <br />recommendations made just for you with Colorbox
             </p>
             <Button 
               onClick={() => navigate("/scan")}
@@ -70,7 +71,7 @@ const Landing = () => {
             </Button>
           </div>
         </div>
-        <div className="w-[1081px] h-[776px] mx-auto mb-0">
+		<div className="w-full max-w-full mx-auto mb-0">
           <img 
             src={image12}
             alt="Women in white outfits"
@@ -88,7 +89,7 @@ const Landing = () => {
             The different types of body shapes
           </p>
           
-          <Carousel className="w-full max-w-5xl mx-auto">
+          <Carousel className="w-full">
             <CarouselContent>
               {bodyTypes.map((type, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
@@ -110,10 +111,9 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* How Does It Work Section */}
 {/* How Does It Work Section */}
 <section className="w-full py-20">
-  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-start">
+  <div className="w-full grid md:grid-cols-2 gap-20 items-start px-40">
 
     {/* LEFT TEXT */}
     <div>
@@ -181,46 +181,31 @@ const Landing = () => {
 
 
       {/* About The Collaboration Section */}
-      <section className="bg-muted/30 py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <div>
-              <h2 className="text-4xl font-bold text-foreground mb-4">
-                About The Collaboration
-              </h2>
-              <h3 className="text-2xl text-muted-foreground mb-6">
-                A Digital Innovation by Students and Colorbox
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                The Body Measurement Visualizer System is a collaborative project between our development team and Colorbox.
-              </p>
-              <p className="text-muted-foreground">
-                Together, we aim to transform online shopping into an interactive, body-positive experience that empowers women to shop with confidence and precision.
-              </p>
-            </div>
-            <div className="flex justify-center">
-                <img 
-				src={image14}
-				/>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="bg-muted/30 px-40 py-16">
+  <div className="w-full px-0">
+    <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+      <div>
+        <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">About The Collaboration</h2>
+        <h3 className="text-2xl text-[#2E2E2E]/75 mb-6">A Digital Innovation by Students and Colorbox</h3>
+        <p className="text-[#2E2E2E]/75 mb-4">
+          The Body Measurement Visualizer System is a collaborative project between our development team and Colorbox.
+        </p>
+        <p className="text-[#2E2E2E]/75">
+          Together, we aim to transform online shopping into an interactive, body-positive experience that empowers women to shop with confidence and precision.
+        </p>
+      </div>
+
+      <div className="flex justify-center">
+        <img src={image14} alt="Colorbox Logo" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Footer */}
-      <footer className="bg-[hsl(0,65%,30%)] text-white py-8">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            <div className="text-lg font-semibold">HerShape X COLORBOX</div>
-            <div className="flex gap-4">
-              <Facebook className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Linkedin className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Youtube className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Instagram className="w-5 h-5 cursor-pointer hover:opacity-80" />
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

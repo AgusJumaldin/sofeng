@@ -8,7 +8,6 @@ import { BodyModel } from "@/components/BodyModel";
 
 type Unit = "imperial" | "metric";
 
-// Renamed component to 'Scan' to match the file path
 const Scan = () => {
   const navigate = useNavigate();
   const [unit, setUnit] = useState<Unit>("metric");
@@ -20,7 +19,6 @@ const Scan = () => {
   });
 
   const toggleUnit = () => {
-    // Corrected logic to use the current state value for conversion
     const isCurrentlyImperial = unit === "imperial";
     setUnit(isCurrentlyImperial ? "metric" : "imperial");
 
