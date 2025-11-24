@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
+import Header from "@/components/Header";
 import image12 from "@/assets/landing/image12.png";
 import image4 from "@/assets/landing/11.png";
 import image5 from "@/assets/landing/image5.png";
@@ -17,54 +18,47 @@ const Landing = () => {
   const bodyTypes = [
     {
       name: "Hourglass",
-      image: image5
+      image: image5,
+	  route: "/body-types/Hourglass"
     },
     {
       name: "Pear",
-      image: image6
+      image: image6,
+	  route: "/body-types/pear"
     },
     {
       name: "Apple",
-      image: image7
+      image: image7,
+	  route: "/body-types/apple"
     },
     {
       name: "Rectangle",
-      image: image8
+      image: image8,
+	  route: "/body-types/rectangle"
     },
     {
       name: "Inverted Triangle",
-      image: image9
+      image: image9,
+	  route: "/body-types/inverted-triangle"
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-[hsl(0,65%,30%)] text-white py-4 px-6">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-xl font-semibold">HerShape x COLORBOX</div>
-          <nav className="flex gap-6">
-            <button onClick={() => navigate("/scan")} className="hover:underline">
-              Start Body Scan
-            </button>
-            <button onClick={() => navigate("/body-types")} className="hover:underline">
-              Body Types
-            </button>
-          </nav>
-        </div>
-      </header>
+      <Header /> 
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div>
-            <h1 className="text-5xl font-bold text-foreground mb-4">
+            <h1 className="font-zenkaku text-5xl font-bold text-foreground mb-4">
               HerShape x COLORBOX
             </h1>
-            <h2 className="text-3xl text-muted-foreground mb-6">
+            <h2 className="font-merriweathersans text-3xl text-muted-foreground mb-6">
               Discover Your Perfect Fit, Virtually
             </h2>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
+            <p className="font-inter text-muted-foreground mb-8 leading-relaxed">
               Visualize your body in 3D, find your body type, and explore outfit
               recommendations made just for you with Colorbox
             </p>
@@ -98,7 +92,8 @@ const Landing = () => {
             <CarouselContent>
               {bodyTypes.map((type, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="bg-background p-8 mx-2 h-full flex flex-col items-center">
+                  <div className="bg-background p-8 mx-2 h-full flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow" 
+				  onClick={() => navigate(type.route)}>
                     <div className="w-405 h-405 mb-6 flex items-center justify-center">
                      <img 
                         src={type.image} 

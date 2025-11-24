@@ -1,7 +1,13 @@
+import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { HelpCircle } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface MeasurementSliderProps {
   label: string;
@@ -24,14 +30,44 @@ export const MeasurementSlider = ({
   onChange,
   isPredicted = false,
 }: MeasurementSliderProps) => {
+  const [inputValue, setInputValue] = useState<string>(String(Math.round(value)));
+
+  useEffect(() => {
+    setInputValue(String(Math.round(value)));
+  }, [value]);
+
   const handleSliderChange = (values: number[]) => {
     onChange(values[0]);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && newValue >= min && newValue <= max) {
-      onChange(newValue);
+    setInputValue(e.target.value);
+  };
+
+  const commitInput = () => {
+    if (inputValue.trim() === "") {
+      setInputValue(String(Math.round(value)));
+      return;
+    }
+
+    const num = Number(inputValue);
+    if (isNaN(num)) {
+      setInputValue(String(Math.round(value)));
+      return;
+    }
+
+    const clamped = Math.min(Math.max(num, min), max);
+    onChange(clamped);
+    setInputValue(String(Math.round(clamped)));
+  };
+
+  const handleInputBlur = () => {
+    commitInput();
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      commitInput();
     }
   };
 
@@ -44,8 +80,10 @@ export const MeasurementSlider = ({
         <div className="flex items-center gap-2">
           <Input
             type="number"
-            value={Math.round(value)}
+            value={inputValue}
             onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            onKeyDown={handleInputKeyDown}
             className="w-16 h-8 text-center"
             min={min}
             max={max}
@@ -67,6 +105,7 @@ export const MeasurementSlider = ({
           )}
         </div>
       </div>
+
       <Slider
         value={[value]}
         onValueChange={handleSliderChange}

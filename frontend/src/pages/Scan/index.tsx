@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { BodyModel } from "@/components/BodyModel";
 import { MeasurementSlider } from "@/components/MeasurementSlider";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { BodyModel } from "@/components/BodyModel";
 
 type Unit = "imperial" | "metric";
 
-const Index = () => {
+// Renamed component to 'Scan' to match the file path
+const Scan = () => {
   const navigate = useNavigate();
   const [unit, setUnit] = useState<Unit>("metric");
   const [measurements, setMeasurements] = useState({
@@ -20,9 +20,12 @@ const Index = () => {
   });
 
   const toggleUnit = () => {
-    setUnit((prev) => (prev === "imperial" ? "metric" : "imperial"));
-    if (unit === "imperial") {
-      // Convert to metric
+    // Corrected logic to use the current state value for conversion
+    const isCurrentlyImperial = unit === "imperial";
+    setUnit(isCurrentlyImperial ? "metric" : "imperial");
+
+    if (isCurrentlyImperial) {
+      // Convert from imperial to metric
       setMeasurements({
         shoulder: Math.round(measurements.shoulder * 2.54),
         bust: Math.round(measurements.bust * 2.54),
@@ -30,7 +33,7 @@ const Index = () => {
         hips: Math.round(measurements.hips * 2.54),
       });
     } else {
-      // Convert to imperial
+      // Convert from metric to imperial
       setMeasurements({
         shoulder: Math.round(measurements.shoulder / 2.54),
         bust: Math.round(measurements.bust / 2.54),
@@ -54,19 +57,24 @@ const Index = () => {
       
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-8 py-8">
-          <h1 className="text-4xl font-light text-gray-800 mb-8">
-            Body Measurement
-          </h1>
-
           <div className="bg-gray-200 py-12 px-8">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-[300px,1fr] gap-12 items-center">
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-[350px,1fr] gap-12 items-start">
               {/* 3D Model Section */}
-              <div className="bg-[#3a3a3a] h-[420px] flex items-center justify-center">
+              <div className="bg-[#3a3a3a] h-[500px] flex items-center justify-center rounded-lg overflow-hidden">
                 <BodyModel measurements={measurements} />
               </div>
 
               {/* Controls Section */}
               <div className="space-y-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-3xl font-light text-gray-800">
+                    Body Type Visualizer
+                  </h2>
+                  <Button onClick={toggleUnit} variant="outline">
+                    Switch to {unit === "imperial" ? "Metric" : "Imperial"}
+                  </Button>
+                </div>
+
                 <MeasurementSlider
                   label="Shoulder"
                   value={measurements.shoulder}
@@ -107,7 +115,7 @@ const Index = () => {
                   onClick={() => navigate("/result")}
                   className="w-full bg-[hsl(0,65%,40%)] hover:bg-[hsl(0,65%,35%)] text-white py-6 text-base"
                 >
-                  Your Body Type Result
+                  Calculate Body Type
                 </Button>
               </div>
             </div>
@@ -120,4 +128,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Scan;

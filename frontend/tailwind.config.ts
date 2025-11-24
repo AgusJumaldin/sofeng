@@ -13,6 +13,12 @@ export default {
       },
     },
     extend: {
+	  fontFamily: {
+		  inter: ["Inter", "sans-serif"],
+		  merriweathersans: ["Merriweather Sans", "sans-serif"],
+		  zenkaku: ["Zen Kaku Gothic New", "sans-serif"],
+		  noto: ["Noto Serif Display", "serif"],
+	},
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
