@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import image7 from "@/assets/HourglassBodyType/7.png";
 import image1 from "@/assets/HourglassBodyType/1.png";
 import image2 from "@/assets/HourglassBodyType/2.png";
@@ -54,23 +56,11 @@ const HourglassBodyType = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-[hsl(0,65%,30%)] text-white py-4 px-6">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-xl font-semibold">HerShape x COLORBOX</div>
-          <nav className="flex gap-6">
-            <button onClick={() => navigate("/scan")} className="hover:underline">
-              Start Body Scan
-            </button>
-            <button onClick={() => navigate("/body-types")} className="hover:underline">
-              Body Types
-            </button>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-foreground text-center">
+        <h1 className="font-zenkaku text-4xl font-bold text-[#454545] text-center">
           Hourglass Body Type
         </h1>
       </section>
@@ -88,14 +78,15 @@ const HourglassBodyType = () => {
 
       {/* Description */}
       <section className="container mx-auto px-6 mb-16">
-        <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+        <p className="font-inter text-xl text-[#454545] text-lg max-w-4xl mx-auto leading-relaxed">
           Your hourglass body shape is beautifully balanced, your shoulders and hips align, while your waist adds that natural definition everyone admires. To accentuate your figure, opt for wrap dresses, crop tops, or high-waisted jeans that hug your curves in all the right places. Fitted silhouettes and soft fabrics will highlight your natural balance without compromising comfort. Whether you're dressing up for a night out or keeping it casual, you shine when your style celebrates your shape.
         </p>
       </section>
 
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
-        <h2 className="text-3xl font-bold text-foreground mb-8">
+	   <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold text-[#454545] mb-8">
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -104,38 +95,27 @@ const HourglassBodyType = () => {
     href={product.url}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+    className="overflow-hidden hover:shadow-lg transition"
   >
     <img
       src={product.image}
       alt={product.name}
-      className="w-full h-80 object-cover"
+      className="w-full h-80 object-contain"
     />
     <div className="p-4">
-      <h3 className="font-semibold text-foreground mb-2">
+		  <h3 className="font-inter text-[#454545] mb-2">
         {product.name}
       </h3>
-      <p className="text-muted-foreground">{product.price}</p>
-    </div>
+      <p className="font-inter text-[#454545]">{product.price}</p>
+	</div>
   </a>
           ))}
+		</div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[hsl(0,65%,30%)] text-white py-8">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            <div className="text-lg font-semibold">HerShape X COLORBOX</div>
-            <div className="flex gap-4">
-              <Facebook className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Linkedin className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Youtube className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Instagram className="w-5 h-5 cursor-pointer hover:opacity-80" />
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -2,11 +2,11 @@ import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[hsl(0,75%,20%)] text-white py-8 px-8 mt-auto">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-[#791401] text-white py-8 px-4 mt-auto">
+      <div className="mw-full pl-20">
         <div className="mb-4">
-          <p className="text-xl font-serif">
-            HerShape <span className="font-bold">X COLORBOX</span>
+          <p className="text-xl font-noto">
+            HerShape <span className="font-zenkaku font-bold">X COLORBOX</span>
           </p>
         </div>
         <div className="flex gap-4">

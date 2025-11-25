@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import image7 from "@/assets/InvertedTriangleBodyType/7.png";
 import image1 from "@/assets/InvertedTriangleBodyType/1.png";
 import image2 from "@/assets/InvertedTriangleBodyType/2.png";
@@ -53,19 +55,7 @@ const InvertedTriangleBodyType = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-[hsl(0,65%,30%)] text-white py-4 px-6">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-xl font-semibold">HerShape x COLORBOX</div>
-          <nav className="flex gap-6">
-            <button onClick={() => navigate("/scan")} className="hover:underline">
-              Start Body Scan
-            </button>
-            <button onClick={() => navigate("/body-types")} className="hover:underline">
-              Body Types
-            </button>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
@@ -123,19 +113,7 @@ const InvertedTriangleBodyType = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[hsl(0,65%,30%)] text-white py-8">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            <div className="text-lg font-semibold">HerShape X COLORBOX</div>
-            <div className="flex gap-4">
-              <Facebook className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Linkedin className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Youtube className="w-5 h-5 cursor-pointer hover:opacity-80" />
-              <Instagram className="w-5 h-5 cursor-pointer hover:opacity-80" />
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
