@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Index from "./pages/Scan";
-import Result from "./pages/Result";
 import BodyTypes from "./pages/BodyTypes";
 import HourglassBodyType from "./pages/HourglassBodyType";
 import PearBodyType from "./pages/PearBodyType";
@@ -25,7 +24,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/scan" element={<Index />} />
-          <Route path="/result" element={<Result />} />
           <Route path="/body-types" element={<BodyTypes />} />
           <Route path="/body-types/hourglass" element={<HourglassBodyType />} />
           <Route path="/body-types/pear" element={<PearBodyType />} />

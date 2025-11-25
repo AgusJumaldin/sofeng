@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -51,7 +52,13 @@ const AppleBodyType = () => {
 	  url: "https://colorbox.co.id/products/regular-fit-flare-denim-pants-med-blue-25g?_pos=1&_sid=ee7e84e50&_ss=r"
     }
   ];
-
+const chunkProducts = (arr, size) => {
+  const res = [];
+  for (let i = 0; i < arr.length; i += size) {
+    res.push(arr.slice(i, i + size));
+  }
+  return res;
+};
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -84,34 +91,72 @@ const AppleBodyType = () => {
 
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
-	   <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-inter font-bold text-[#454545] mb-8">
-          Pieces that we recommend:
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (<a
-    key={index}
-    href={product.url}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="overflow-hidden hover:shadow-lg transition"
-  >
-    <img
-      src={product.image}
-      alt={product.name}
-      className="w-full h-80 object-contain"
-    />
-    <div className="p-4">
-		  <h3 className="font-inter text-[#454545] mb-2">
-        {product.name}
-      </h3>
-      <p className="font-inter text-[#454545]">{product.price}</p>
-	</div>
-  </a>
-          ))}
-		</div>
-        </div>
-      </section>
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-inter font-bold text-[#454545] mb-8">
+      Pieces that we recommend:
+    </h2>
+
+    <Carousel className="w-full">
+      <CarouselContent>
+
+        {chunkProducts(products, 6).map((group, index) => (
+          <CarouselItem key={index}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+              {/* ROW 1 */}
+              {group.slice(0, 3).map((product, i) => (
+                <a
+                  key={`row1-${i}`}
+                  href={product.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="overflow-hidden hover:shadow-lg transition block"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-72 object-contain"
+                  />
+                  <div className="p-4">
+                    <h3 className="font-inter text-[#454545] mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="font-inter text-[#454545]">{product.price}</p>
+                  </div>
+                </a>
+              ))}
+
+              {/* ROW 2 */}
+              {group.slice(3, 6).map((product, i) => (
+                <a
+                  key={`row2-${i}`}
+                  href={product.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="overflow-hidden hover:shadow-lg transition block"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-72 object-contain"
+                  />
+                  <div className="p-4">
+                    <h3 className="font-inter text-[#454545] mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="font-inter text-[#454545]">{product.price}</p>
+                  </div>
+                </a>
+              ))}
+
+            </div>
+          </CarouselItem>
+        ))}
+
+      </CarouselContent>
+    </Carousel>
+  </div>
+</section>
 
       {/* Footer */}
       <Footer />
