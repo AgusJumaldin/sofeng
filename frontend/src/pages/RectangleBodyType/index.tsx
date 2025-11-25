@@ -59,7 +59,7 @@ const RectangleBodyType = () => {
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-foreground text-center">
+        <h1 className="font-zenkaku text-4xl font-extrabold text-[#454545] text-center">
           Rectangle Body Type
         </h1>
       </section>
@@ -70,45 +70,46 @@ const RectangleBodyType = () => {
           <img
             src={image7}
             alt="Rectangle Body Type"
-            className="max-w-2xl w-full rounded-lg"
+            className="w-full rounded-lg"
           />
         </div>
       </section>
 
       {/* Description */}
       <section className="container mx-auto px-6 mb-16">
-        <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+        <p className="font-inter text-[#454545] text-lg max-w-5xl mx-auto leading-relaxed text-justify">
           Your rectangle body shape is naturally balanced, with shoulders, waist, and hips that align in a sleek and athletic way. To enhance your figure, go for outfits that create gentle curves, such as belted dresses, peplum tops, or high-waisted pants that define your waist. Layered styles and textured fabrics can add dimension while keeping you effortlessly chic. Whether you're dressing for a casual day or a special night out, you shine when your style adds shape and structure to your look.
         </p>
       </section>
 
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
-        <h2 className="text-3xl font-bold text-foreground mb-8">
+	   <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-inter font-bold text-[#454545] mb-8">
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <a
+          {products.map((product, index) => (<a
     key={index}
     href={product.url}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+    className="overflow-hidden hover:shadow-lg transition"
   >
     <img
       src={product.image}
       alt={product.name}
-      className="w-full h-80 object-cover"
+      className="w-full h-80 object-contain"
     />
     <div className="p-4">
-      <h3 className="font-semibold text-foreground mb-2">
+		  <h3 className="font-inter text-[#454545] mb-2">
         {product.name}
       </h3>
-      <p className="text-muted-foreground">{product.price}</p>
-    </div>
+      <p className="font-inter text-[#454545]">{product.price}</p>
+	</div>
   </a>
           ))}
+		</div>
         </div>
       </section>
 

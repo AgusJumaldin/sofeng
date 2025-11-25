@@ -15,13 +15,13 @@ const AppleBodyType = () => {
 
   const products = [
     {
-	  name: "Oversized Button Up Shirt",
+      name: "Oversized Button Up Shirt",
       price: "IDR 229.900",
       image: image5,
 	  url: "https://colorbox.co.id/products/oversized-button-up-shirt-off-white-25i?_pos=2&_sid=d64672d56&_ss=r"
     },
     {
-	  name: "Oversized Scuba Graphic T-Shirt",
+      name: "Oversized Scuba Graphic T-Shirt",
       price: "IDR 159.900",
       image: image4,
 	  url: "https://colorbox.co.id/products/oversized-scuba-graphic-t-shirt-lt-blue-25g?_pos=1&_sid=67108d184&_ss=r"
@@ -33,13 +33,13 @@ const AppleBodyType = () => {
 	  url: "https://colorbox.co.id/products/front-ruched-short-sleeve-shirt-black-25h?_pos=3&_sid=b09fb34e3&_ss=r"
     },
     {
-	  name: "Oversized Front Tie Cardigan",
+      name: "Oversized Front Tie Cardigan",
       price: "IDR 299.900",
       image: image2,
 	  url: "https://colorbox.co.id/products/oversized-front-tie-cardigan-grey-25i?_pos=1&_sid=5c5fe287c&_ss=r"
     },
     {
-	  name: "A-Line Denim Midi Skirt",
+      name: "A-Line Denim Midi Skirt",
       price: "IDR 279.900",
       image: image1,
 	  url: "https://colorbox.co.id/products/a-line-denim-midi-skirt-lt-blue-25g?_pos=4&_sid=e0593de97&_ss=r"
@@ -59,7 +59,7 @@ const AppleBodyType = () => {
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-foreground text-center">
+        <h1 className="font-zenkaku text-4xl font-extrabold text-[#454545] text-center">
           Apple Body Type
         </h1>
       </section>
@@ -70,45 +70,46 @@ const AppleBodyType = () => {
           <img
             src={image7}
             alt="Apple Body Type"
-            className="max-w-2xl w-full rounded-lg"
+            className="w-full rounded-lg"
           />
         </div>
       </section>
 
       {/* Description */}
       <section className="container mx-auto px-6 mb-16">
-        <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+        <p className="font-inter text-[#454545] text-lg max-w-5xl mx-auto leading-relaxed text-justify">
           Your apple body shape carries strength and softness in perfect balance. With fuller curves around your midsection and a naturally defined bust, your look shines when the focus moves upward and outward. Try flowy tops, wrap blouses, or V-neck styles that draw the eye to your neckline. Pair them with structured pants, A-line skirts, or straight-cut jeans for a balanced silhouette. Whether you're dressing up or keeping it casual, you radiate confidence when comfort and style meet in harmony.
         </p>
       </section>
 
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
-        <h2 className="text-3xl font-bold text-foreground mb-8">
+	   <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-inter font-bold text-[#454545] mb-8">
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-		   <a
+          {products.map((product, index) => (<a
     key={index}
     href={product.url}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+    className="overflow-hidden hover:shadow-lg transition"
   >
     <img
       src={product.image}
       alt={product.name}
-      className="w-full h-80 object-cover"
+      className="w-full h-80 object-contain"
     />
     <div className="p-4">
-      <h3 className="font-semibold text-foreground mb-2">
+		  <h3 className="font-inter text-[#454545] mb-2">
         {product.name}
       </h3>
-      <p className="text-muted-foreground">{product.price}</p>
-    </div>
+      <p className="font-inter text-[#454545]">{product.price}</p>
+	</div>
   </a>
-))}
+          ))}
+		</div>
         </div>
       </section>
 

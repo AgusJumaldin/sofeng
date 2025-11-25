@@ -49,43 +49,51 @@ const Landing = () => {
       {/* Header */}
       <Header /> 
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-          <div>
-            <h1 className="font-zenkaku text-5xl font-bold text-[#2E2E2E] mb-4">
-              HerShape x COLORBOX
-            </h1>
-            <h2 className="font-merriweathersans text-3xl text-[#000000]/75 mb-6">
-              Discover Your Perfect Fit, Virtually
-            </h2>
-            <p className="font-inter mb-8 text-[#000000]/75 leading-relaxed">
-              Visualize your body in 3D, find your body type, and explore outfit 
-			  <br />recommendations made just for you with Colorbox
-            </p>
-            <Button 
-              onClick={() => navigate("/scan")}
-              className="bg-[hsl(0,65%,30%)] hover:bg-[hsl(0,65%,25%)] text-white px-8 py-6 text-lg"
-            >
-              Start Your Body Scan | Find My Style
-            </Button>
-          </div>
-        </div>
-		<div className="w-full max-w-full mx-auto mb-0">
-          <img 
-            src={image12}
-            alt="Women in white outfits"
-          />
-        </div>
-      </section>
+ {/* Hero Section */}
+<section className="w-full px-6 py-16 pb-8 flex flex-col items-center">
+
+{/* Shared wrapper for TEXT + IMAGE */}
+<div className="w-full max-w-5xl mx-auto">
+
+  {/* Text Section */}
+  <div className="mb-12">
+    <h1 className="font-zenkaku text-5xl font-bold text-[#2E2E2E] mb-4">
+      HerShape x COLORBOX
+    </h1>
+    <h2 className="font-merriweathersans text-3xl text-[#000000]/75 mb-6">
+      Discover Your Perfect Fit, Virtually
+    </h2>
+    <p className="font-inter mb-8 text-[#000000]/75 leading-relaxed">
+      Visualize your body in 3D, find your body type, and explore outfit
+      <br />recommendations made just for you with Colorbox
+    </p>
+    <Button
+      onClick={() => navigate("/scan")}
+      className="bg-[hsl(0,65%,30%)] hover:bg-[hsl(0,65%,25%)] text-white px-8 py-6 pb-8 text-lg"
+    >
+      Start Your Body Scan | Find My Style
+    </Button>
+  </div>
+
+  {/* Image */}
+  <div className="w-full flex justify-center">
+    <img
+      src={image12}
+      alt="Women in white outfits"
+      className="w-full object-cover"
+    />
+  </div>
+
+</div>
+</section>
 
       {/* Body Types Carousel Section */}
-      <section className="bg-muted/30 py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-foreground mb-2">
+      <section className="bg-muted/30 pt-10 pb-16">
+        <div className="w-full max-w-5xl mx-auto">
+          <h2 className="text-4xl text-[#454545] font-bold font-merriweathersans mb-4">
             Know your body. Own your style.
           </h2>
-          <p className="text-xl text-muted-foreground mb-12">
+          <p className="text-xl text-[#454545] font-medium font-inter mb-10">
             The different types of body shapes
           </p>
           
@@ -112,57 +120,59 @@ const Landing = () => {
       </section>
 
 {/* How Does It Work Section */}
-<section className="w-full py-10">
-  <div className="w-full grid md:grid-cols-2 gap-20 items-start px-40">
+<section className="w-full py-20 bg-white">
+  <div className="w-full max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-stretch">
 
-    {/* LEFT TEXT */}
-    <div>
-      {/* Title 48px */}
-      <h2 className="text-[48px] font-merriweathersans text-foreground text-[#454545] mb-20 leading-tight">
+    {/* LEFT TEXT BLOCK */}
+    <div className="flex flex-col justify-between">
+
+      {/* Title */}
+      <h2 className="text-[46px] font-merriweathersans text-[#454545] leading-tight mb-12">
         How Does It Work?
       </h2>
 
-      <div className="space-y-10">
+      {/* Steps Wrapper */}
+      <div className="flex flex-col gap-10">
 
         {/* Step 1 */}
         <div>
-          <p className="font-inter text-[30px] text-[#454545] text-foreground leading-snug mb-5">
+          <p className="font-inter text-[24px] text-[#454545] leading-tight mb-2">
             Step 1 – Measure Yourself:
           </p>
-          <p className="font-inter text-[24px] text-muted-foreground leading-snug">
-            Enter your basic body measurements; bust,<br />
-			shoulders, waist, and hips.
+          <p className="font-inter text-[18px] text-muted-foreground leading-snug">
+            Enter your basic body measurements; bust,
+            shoulders, waist, and hips.
           </p>
         </div>
 
         {/* Step 2 */}
         <div>
-          <p className="font-inter text-[#454545] text-[30px] text-foreground leading-snug mb-5">
+          <p className="font-inter text-[24px] text-[#454545] leading-tight mb-2">
             Step 2 – See Your 3D Model:
           </p>
-          <p className="font-inter text-[24px] text-muted-foreground leading-snug">
+          <p className="font-inter text-[18px] text-muted-foreground leading-snug">
             Get a realistic visual of your body in seconds.
           </p>
         </div>
 
         {/* Step 3 */}
         <div>
-          <p className="font-inter text-[#454545] text-[30px] text-foreground leading-snug mb-5">
+          <p className="font-inter text-[24px] text-[#454545] leading-tight mb-2">
             Step 3 – Know Your Body Type:
           </p>
-          <p className="font-inter text-[24px] text-muted-foreground leading-snug">
-            Instantly learn if you're pear, hourglass,<br />
-			apple, or rectangle.
+          <p className="font-inter text-[18px] text-muted-foreground leading-snug">
+            Instantly learn if you're pear, hourglass,
+            apple, or rectangle.
           </p>
         </div>
 
         {/* Step 4 */}
         <div>
-          <p className="font-inter text-[#454545] text-[30px] text-foreground leading-snug mb-5">
+          <p className="font-inter text-[24px] text-[#454545] leading-tight mb-2">
             Step 4 – Get Personalized Outfit Recommendations:
           </p>
-          <p className="font-inter text-[24px] text-muted-foreground leading-snug">
-            Browse Colorbox's latest looks tailored for your unique shape.
+          <p className="font-inter text-[18px] text-muted-foreground leading-snug">
+            Browse Colorbox’s latest looks tailored for your unique shape.
           </p>
         </div>
 
@@ -170,40 +180,57 @@ const Landing = () => {
     </div>
 
     {/* RIGHT IMAGE */}
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center">
       <img
         src={image4}
         alt="Measuring waist"
-        className="rounded-xl object-cover shadow-sm w-[1081px] h-[776px]"
+        className="rounded-xl shadow-sm object-cover w-full max-w-[600px] h-[550px]"
       />
     </div>
 
   </div>
 </section>
 
-
-      {/* About The Collaboration Section */}
-      <section className="bg-muted/30 px-4py-16">
-  <div className="w-full px-0">
+{/* About The Collaboration Section */}
+<section className="bg-muted/30 px-4 py-16 mt-24 mb-24">
+  <div className="w-full max-w-5xl mx-auto px-0">
     <div className="grid md:grid-cols-2 gap-12 items-center w-full">
-      <div className="pl-6 md:pl-40">
-        <h2 className="text-4xl font-merriweathersans font-bold text-[#454545] mb-4">About The Project</h2>
-        <h3 className="text-2xl font-inter text-[#454545] mb-6">Smart Fashion Fit, Powered by Technology</h3>
-        <p className="text-[#454545] mb-4">
-          This student-developed system helps users identify their body <br /> type and explore clothing styles that flatter their shape. With 3D <br /> visualization and intelligent analysis, it offers a personalized,<br /> body-positive experience for more confident shopping.
+      
+      {/* Left Text Block */}
+      <div>
+        <h2 className="text-[46px] font-merriweathersans font-bold text-[#454545] mb-4">
+          About The Project
+        </h2>
+        <h3 className="text-[24px] font-inter text-[#454545] mb-6">
+          Smart Fashion Fit, Powered by Technology
+        </h3>
+
+        <p className="text-[16px] text-[#454545] mb-4 leading-relaxed">
+          This student-developed system helps users identify their body type and
+          explore clothing styles that flatter their shape. With 3D visualization
+          and intelligent analysis, it offers a personalized, body-positive
+          experience for more confident shopping.
         </p>
-        <p className="text-[#454545]">
-          Outfit inspirations are sourced from Colorbox’s public collection.<br /> This project is not affiliated with Colorbox; recommendations are <br /> for styling reference and educational purposes.
+
+        <p className="text-[16px] text-[#454545] leading-relaxed">
+          Outfit inspirations are sourced from Colorbox’s public collection.
+          This project is not affiliated with Colorbox; recommendations are for
+          styling reference and educational purposes.
         </p>
       </div>
 
-      <div className="flex justify-start">
-        <img src={image14} alt="Colorbox Logo" />
+      {/* Right Image */}
+      <div className="flex justify-center md:justify-end">
+        <img 
+          src={image14} 
+          alt="Colorbox Logo"
+          className="max-w-[380px] w-full object-contain"
+        />
       </div>
+
     </div>
   </div>
 </section>
-
 
 
       {/* Footer */}

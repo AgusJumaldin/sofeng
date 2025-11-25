@@ -60,7 +60,7 @@ const HourglassBodyType = () => {
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="font-zenkaku text-4xl font-bold text-[#454545] text-center">
+        <h1 className="font-zenkaku text-4xl font-extrabold text-[#454545] text-center">
           Hourglass Body Type
         </h1>
       </section>
@@ -78,7 +78,7 @@ const HourglassBodyType = () => {
 
       {/* Description */}
       <section className="container mx-auto px-6 mb-16">
-        <p className="font-inter text-xl text-[#454545] text-lg max-w-4xl mx-auto leading-relaxed">
+        <p className="font-inter text-[#454545] text-lg max-w-5xl mx-auto leading-relaxed text-justify">
           Your hourglass body shape is beautifully balanced, your shoulders and hips align, while your waist adds that natural definition everyone admires. To accentuate your figure, opt for wrap dresses, crop tops, or high-waisted jeans that hug your curves in all the right places. Fitted silhouettes and soft fabrics will highlight your natural balance without compromising comfort. Whether you're dressing up for a night out or keeping it casual, you shine when your style celebrates your shape.
         </p>
       </section>
@@ -86,7 +86,7 @@ const HourglassBodyType = () => {
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
 	   <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-[#454545] mb-8">
+        <h2 className="text-3xl font-inter font-bold text-[#454545] mb-8">
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

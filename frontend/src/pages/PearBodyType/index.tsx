@@ -21,25 +21,25 @@ const PearBodyType = () => {
 	  url: "https://colorbox.co.id/products/puff-sleeve-blouse-with-lace-trim-lt-pink-25h?_pos=10&_sid=10945b996&_ss=r"
     },
     {
-	  name: "Button Up Wide Collar Blouse",
+      name: "Button Up Wide Collar Blouse",
       price: "IDR 179.900",
       image: image4,
 	  url: "https://colorbox.co.id/products/button-up-wide-collar-blouse-lt-blue-25g?_pos=1&_sid=ce76dd0ae&_ss=r"
     },
     {
-	  name: "High Neck Long Sleeve Top",
+      name: "High Neck Long Sleeve Top",
       price: "IDR 99.900",
       image: image5,
 	  url: "https://colorbox.co.id/products/high-neck-long-sleeve-top-beige-22o?_pos=1&_sid=93529cb0e&_ss=r"
     },
     {
-	  name: "Off Shoulder Mini Balloon Dress",
+      name: "Off Shoulder Mini Balloon Dress",
       price: "IDR 279.900",
       image: image3,
 	  url: "https://colorbox.co.id/products/off-shoulder-mini-balloon-dress-black-25e?_pos=3&_sid=6d66d78d5&_ss=r&variant=46700421415170"
     },
     {
-	  name: "Frayed High Waist Baggy Jeans",
+      name: "Frayed High Waist Baggy Jeans",
       price: "IDR 329.900",
       image: image2,
 	  url: "https://colorbox.co.id/products/frayed-high-waist-baggy-jeans-ecru-25e?_pos=1&_sid=05ec46873&_ss=r"
@@ -60,50 +60,57 @@ const PearBodyType = () => {
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-foreground text-center">
+        <h1 className="font-zenkaku text-4xl font-extrabold text-[#454545] text-center">
           Pear Body Type
         </h1>
       </section>
 
       {/* Hero Image */}
-      <section className="container mx-auto px-6 mb-12">
+      <section className="container mx-auto w-[1278px] h-[639px]">
         <div className="bg-muted/20 rounded-lg p-8 flex justify-center">
           <img
             src={image7}
             alt="Pear Body Type"
-            className="max-w-2xl w-full rounded-lg"
+            className="w-full rounded-lg"
           />
         </div>
       </section>
 
       {/* Description */}
       <section className="container mx-auto px-6 mb-16">
-        <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+        <p className="font-inter text-[#454545] text-lg max-w-5xl mx-auto leading-relaxed text-justify">
           Your pear body shape is beautifully grounded, with graceful curves around the hips and thighs and a naturally defined waist. Balance your silhouette by drawing attention upward; think statement tops, wide necklines, or detailed sleeves. A-line skirts and straight-leg pants flow effortlessly, highlighting your waist while elongating your frame. Whether casual or dressed up, your style shines when it celebrates your natural proportions.
         </p>
       </section>
 
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
-        <h2 className="text-3xl font-bold text-foreground mb-8">
+	   <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl fonnt-inter font-bold text-[#454545] mb-8">
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <div key={index} className="bg-background rounded-lg overflow-hidden shadow-md">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-semibold text-foreground mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-muted-foreground">{product.price}</p>
-              </div>
-            </div>
+          {products.map((product, index) => (<a
+    key={index}
+    href={product.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="overflow-hidden hover:shadow-lg transition"
+  >
+    <img
+      src={product.image}
+      alt={product.name}
+      className="w-full h-80 object-contain"
+    />
+    <div className="p-4">
+		  <h3 className="font-inter text-[#454545] mb-2">
+        {product.name}
+      </h3>
+      <p className="font-inter text-[#454545]">{product.price}</p>
+	</div>
+  </a>
           ))}
+		</div>
         </div>
       </section>
 

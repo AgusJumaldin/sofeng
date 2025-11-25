@@ -59,7 +59,7 @@ const InvertedTriangleBodyType = () => {
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-foreground text-center">
+        <h1 className="font-zenkaku text-4xl font-extrabold text-[#454545] text-center">
           Inverted Triangle Body Type
         </h1>
       </section>
@@ -70,45 +70,46 @@ const InvertedTriangleBodyType = () => {
           <img
             src={image7}
             alt="Inverted Triangle Body Type"
-            className="max-w-2xl w-full rounded-lg"
+            className="w-full rounded-lg"
           />
         </div>
       </section>
 
       {/* Description */}
       <section className="container mx-auto px-6 mb-16">
-        <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+        <p className="font-inter text-[#454545] text-lg max-w-5xl mx-auto leading-relaxed text-justify">
           Your inverted triangle body shape is bold and athletic, with strong shoulders and a sleek, tapered waist. To create harmony, soften your upper frame with V-necks or wrap tops and add volume below with flared skirts or wide-leg pants. Balanced proportions and fluid fabrics help highlight your confident shape. No matter the look, your style stands out with strength and effortless poise.
         </p>
       </section>
 
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
-        <h2 className="text-3xl font-bold text-foreground mb-8">
+	   <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-inter font-bold text-[#454545] mb-8">
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <a
+          {products.map((product, index) => (<a
     key={index}
     href={product.url}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+    className="overflow-hidden hover:shadow-lg transition"
   >
     <img
       src={product.image}
       alt={product.name}
-      className="w-full h-80 object-cover"
+      className="w-full h-80 object-contain"
     />
     <div className="p-4">
-      <h3 className="font-semibold text-foreground mb-2">
+		  <h3 className="font-inter text-[#454545] mb-2">
         {product.name}
       </h3>
-      <p className="text-muted-foreground">{product.price}</p>
-    </div>
+      <p className="font-inter text-[#454545]">{product.price}</p>
+	</div>
   </a>
           ))}
+		</div>
         </div>
       </section>
 
