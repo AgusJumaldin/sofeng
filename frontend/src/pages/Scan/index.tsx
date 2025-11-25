@@ -106,7 +106,17 @@ const Scan = () => {
       <Header />
 
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto px-8 py-8">
+        <div className="w-full max-w-5xl mx-auto px-6 py-8">
+		<div className="max-w-7xl mx-auto text-left mb-10">
+  <h2 className="text-3xl font-zenkaku text-[#2E2E2E] text-bold mb-3">
+    Measure, Visualize, Understand
+  </h2>
+  <p className="text-[#454545] font-merriweather leading-relaxed">
+    Set your shoulder, bust, waist, and hip measurements to see your real-time body model update instantly. 
+    Once complete, we’ll identify your body type and recommend styles that celebrate your unique shape.
+  </p>
+</div>
+
           <div className="bg-gray-200 py-12 px-8">
             <div className="max-w-6xl mx-auto grid lg:grid-cols-[350px,1fr] gap-12 items-start">
               {/* 3D Model Section */}
@@ -117,7 +127,7 @@ const Scan = () => {
               {/* Controls Section */}
               <div className="space-y-6">
                 <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-3xl font-light text-gray-800">
+                  <h2 className="text-3xl font-merriweather text-[#2E2E2E]">
                     Body Type Visualizer
                   </h2>
                   <Button onClick={toggleUnit} variant="outline">
