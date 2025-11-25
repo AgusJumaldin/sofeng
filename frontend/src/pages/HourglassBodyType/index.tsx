@@ -60,7 +60,7 @@ const HourglassBodyType = () => {
 
       {/* Title */}
       <section className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-foreground text-center">
+        <h1 className="font-zenkaku text-4xl font-bold text-[#454545] text-center">
           Hourglass Body Type
         </h1>
       </section>
@@ -78,14 +78,15 @@ const HourglassBodyType = () => {
 
       {/* Description */}
       <section className="container mx-auto px-6 mb-16">
-        <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+        <p className="font-inter text-xl text-[#454545] text-lg max-w-4xl mx-auto leading-relaxed">
           Your hourglass body shape is beautifully balanced, your shoulders and hips align, while your waist adds that natural definition everyone admires. To accentuate your figure, opt for wrap dresses, crop tops, or high-waisted jeans that hug your curves in all the right places. Fitted silhouettes and soft fabrics will highlight your natural balance without compromising comfort. Whether you're dressing up for a night out or keeping it casual, you shine when your style celebrates your shape.
         </p>
       </section>
 
       {/* Products */}
       <section className="container mx-auto px-6 pb-16">
-        <h2 className="text-3xl font-bold text-foreground mb-8">
+	   <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold text-[#454545] mb-8">
           Pieces that we recommend:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -94,21 +95,22 @@ const HourglassBodyType = () => {
     href={product.url}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
+    className="overflow-hidden hover:shadow-lg transition"
   >
     <img
       src={product.image}
       alt={product.name}
-      className="w-full h-80 object-cover"
+      className="w-full h-80 object-contain"
     />
     <div className="p-4">
-      <h3 className="font-semibold text-foreground mb-2">
+		  <h3 className="font-inter text-[#454545] mb-2">
         {product.name}
       </h3>
-      <p className="text-muted-foreground">{product.price}</p>
-    </div>
+      <p className="font-inter text-[#454545]">{product.price}</p>
+	</div>
   </a>
           ))}
+		</div>
         </div>
       </section>
 
