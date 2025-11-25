@@ -6,8 +6,11 @@ import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useMutation } from "@tanstack/react-query";
 
 type Unit = "imperial" | "metric";
+
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -44,14 +47,63 @@ const Index = () => {
     setMeasurements((prev) => ({ ...prev, [key]: value }));
   };
 
-  const bodyConfig = unit === "imperial"
-    ? { min: 20, max: 60, unit: "inches" }
-    : { min: 60, max: 150, unit: "cm" };
+  const bodyConfig =
+    unit === "imperial"
+      ? { min: 20, max: 60, unit: "inches" }
+      : { min: 60, max: 150, unit: "cm" };
+
+  const measurementMutation = useMutation({
+    mutationKey: ["create-measurement"],
+    mutationFn: async () => {
+      // convert ke cm kalau user lagi pakai imperial
+      const factor = unit === "imperial" ? 2.54 : 1;
+
+      const payload = {
+        shoulders: measurements.shoulder * factor,
+        bust: measurements.bust * factor,
+        waist: measurements.waist * factor,
+        hips: measurements.hips * factor,
+        sessionId: String(Date.now()),
+      };
+
+      const res = await fetch(`${API_URL}/measurements`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to create measurement");
+      }
+
+      return res.json();
+    },
+    onSuccess: (data: any) => {
+      console.log("Saved measurement:", data);
+      const bodyType = data.bodyType as string;
+
+      if (bodyType === "hourglass") {
+        navigate("/body-types/hourglass", { state: { measurement: data } });
+      } else if (bodyType === "pear") {
+        navigate("/body-types/pear", { state: { measurement: data } });
+      } else if (bodyType === "apple") {
+        navigate("/body-types/apple", { state: { measurement: data } });
+      } else if (bodyType === "rectangle") {
+        navigate("/body-types/rectangle", { state: { measurement: data } });
+      } else if (bodyType === "inverted-triangle") {
+        navigate("/body-types/inverted-triangle", {
+          state: { measurement: data },
+        });
+      } else {
+        navigate("/result", { state: { measurement: data } });
+      }
+    },
+  });
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      
+
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-8 py-8">
           <h1 className="text-4xl font-light text-gray-800 mb-8">
@@ -67,6 +119,11 @@ const Index = () => {
 
               {/* Controls Section */}
               <div className="space-y-6">
+                {/* Optional: button toggle unit */}
+                {/* <Button variant="outline" onClick={toggleUnit}>
+                  Switch to {unit === "metric" ? "Imperial" : "Metric"}
+                </Button> */}
+
                 <MeasurementSlider
                   label="Shoulder"
                   value={measurements.shoulder}
@@ -103,12 +160,21 @@ const Index = () => {
                   onChange={(value) => updateMeasurement("hips", value)}
                 />
 
-                <Button 
-                  onClick={() => navigate("/result")}
+                <Button
+                  onClick={() => measurementMutation.mutate()}
+                  disabled={measurementMutation.isPending}
                   className="w-full bg-[hsl(0,65%,40%)] hover:bg-[hsl(0,65%,35%)] text-white py-6 text-base"
                 >
-                  Your Body Type Result
+                  {measurementMutation.isPending
+                    ? "Analyzing..."
+                    : "Your Body Type Result"}
                 </Button>
+
+                {measurementMutation.isError && (
+                  <p className="text-red-500 text-sm">
+                    {(measurementMutation.error as Error).message}
+                  </p>
+                )}
               </div>
             </div>
           </div>
