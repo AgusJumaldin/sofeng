@@ -47,7 +47,7 @@ const Scan = () => {
 
   const bodyConfig = unit === "imperial"
     ? { min: 20, max: 60, unit: "inches" }
-    : { min: 60, max: 150, unit: "cm" };
+    : { min: 20, max: 150, unit: "cm" };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
