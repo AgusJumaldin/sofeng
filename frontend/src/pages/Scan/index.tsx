@@ -1,18 +1,17 @@
 import { useState } from "react";
-import { BodyModel } from "@/components/BodyModel";
 import { MeasurementSlider } from "@/components/MeasurementSlider";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { BodyModel } from "@/components/BodyModel";
 import { useMutation } from "@tanstack/react-query";
 
 type Unit = "imperial" | "metric";
 
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
-const Index = () => {
+const Scan = () => {
   const navigate = useNavigate();
   const [unit, setUnit] = useState<Unit>("metric");
   const [measurements, setMeasurements] = useState({
@@ -23,9 +22,11 @@ const Index = () => {
   });
 
   const toggleUnit = () => {
-    setUnit((prev) => (prev === "imperial" ? "metric" : "imperial"));
-    if (unit === "imperial") {
-      // Convert to metric
+    const isCurrentlyImperial = unit === "imperial";
+    setUnit(isCurrentlyImperial ? "metric" : "imperial");
+
+    if (isCurrentlyImperial) {
+      // Convert from imperial to metric
       setMeasurements({
         shoulder: Math.round(measurements.shoulder * 2.54),
         bust: Math.round(measurements.bust * 2.54),
@@ -33,7 +34,7 @@ const Index = () => {
         hips: Math.round(measurements.hips * 2.54),
       });
     } else {
-      // Convert to imperial
+      // Convert from metric to imperial
       setMeasurements({
         shoulder: Math.round(measurements.shoulder / 2.54),
         bust: Math.round(measurements.bust / 2.54),
@@ -50,12 +51,12 @@ const Index = () => {
   const bodyConfig =
     unit === "imperial"
       ? { min: 20, max: 60, unit: "inches" }
-      : { min: 60, max: 150, unit: "cm" };
+      : { min: 20, max: 150, unit: "cm" };
 
   const measurementMutation = useMutation({
     mutationKey: ["create-measurement"],
     mutationFn: async () => {
-      // convert ke cm kalau user lagi pakai imperial
+      // Always send in cm to the backend
       const factor = unit === "imperial" ? 2.54 : 1;
 
       const payload = {
@@ -106,23 +107,23 @@ const Index = () => {
 
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-8 py-8">
-          <h1 className="text-4xl font-light text-gray-800 mb-8">
-            Body Measurement
-          </h1>
-
           <div className="bg-gray-200 py-12 px-8">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-[300px,1fr] gap-12 items-center">
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-[350px,1fr] gap-12 items-start">
               {/* 3D Model Section */}
-              <div className="bg-[#3a3a3a] h-[420px] flex items-center justify-center">
+              <div className="bg-[#3a3a3a] h-[500px] flex items-center justify-center rounded-lg overflow-hidden">
                 <BodyModel measurements={measurements} />
               </div>
 
               {/* Controls Section */}
               <div className="space-y-6">
-                {/* Optional: button toggle unit */}
-                {/* <Button variant="outline" onClick={toggleUnit}>
-                  Switch to {unit === "metric" ? "Imperial" : "Metric"}
-                </Button> */}
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-3xl font-light text-gray-800">
+                    Body Type Visualizer
+                  </h2>
+                  <Button onClick={toggleUnit} variant="outline">
+                    Switch to {unit === "imperial" ? "Metric" : "Imperial"}
+                  </Button>
+                </div>
 
                 <MeasurementSlider
                   label="Shoulder"
@@ -167,7 +168,7 @@ const Index = () => {
                 >
                   {measurementMutation.isPending
                     ? "Analyzing..."
-                    : "Your Body Type Result"}
+                    : "Calculate Body Type"}
                 </Button>
 
                 {measurementMutation.isError && (
@@ -186,4 +187,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Scan;
