@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BodyModel } from "@/components/BodyModel";
+import { useMutation } from "@tanstack/react-query";
 
 type Unit = "imperial" | "metric";
+
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
 const Scan = () => {
   const navigate = useNavigate();
@@ -45,14 +48,63 @@ const Scan = () => {
     setMeasurements((prev) => ({ ...prev, [key]: value }));
   };
 
-  const bodyConfig = unit === "imperial"
-    ? { min: 20, max: 60, unit: "inches" }
-    : { min: 20, max: 150, unit: "cm" };
+  const bodyConfig =
+    unit === "imperial"
+      ? { min: 20, max: 60, unit: "inches" }
+      : { min: 20, max: 150, unit: "cm" };
+
+  const measurementMutation = useMutation({
+    mutationKey: ["create-measurement"],
+    mutationFn: async () => {
+      // Always send in cm to the backend
+      const factor = unit === "imperial" ? 2.54 : 1;
+
+      const payload = {
+        shoulders: measurements.shoulder * factor,
+        bust: measurements.bust * factor,
+        waist: measurements.waist * factor,
+        hips: measurements.hips * factor,
+        sessionId: String(Date.now()),
+      };
+
+      const res = await fetch(`${API_URL}/measurements`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to create measurement");
+      }
+
+      return res.json();
+    },
+    onSuccess: (data: any) => {
+      console.log("Saved measurement:", data);
+      const bodyType = data.bodyType as string;
+
+      if (bodyType === "hourglass") {
+        navigate("/body-types/hourglass", { state: { measurement: data } });
+      } else if (bodyType === "pear") {
+        navigate("/body-types/pear", { state: { measurement: data } });
+      } else if (bodyType === "apple") {
+        navigate("/body-types/apple", { state: { measurement: data } });
+      } else if (bodyType === "rectangle") {
+        navigate("/body-types/rectangle", { state: { measurement: data } });
+      } else if (bodyType === "inverted-triangle") {
+        navigate("/body-types/inverted-triangle", {
+          state: { measurement: data },
+        });
+      } else {
+        navigate("/result", { state: { measurement: data } });
+      }
+    },
+  });
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      
+
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-8 py-8">
           <div className="bg-gray-200 py-12 px-8">
@@ -109,12 +161,21 @@ const Scan = () => {
                   onChange={(value) => updateMeasurement("hips", value)}
                 />
 
-                <Button 
-                  onClick={() => navigate("/result")}
+                <Button
+                  onClick={() => measurementMutation.mutate()}
+                  disabled={measurementMutation.isPending}
                   className="w-full bg-[hsl(0,65%,40%)] hover:bg-[hsl(0,65%,35%)] text-white py-6 text-base"
                 >
-                  Calculate Body Type
+                  {measurementMutation.isPending
+                    ? "Analyzing..."
+                    : "Calculate Body Type"}
                 </Button>
+
+                {measurementMutation.isError && (
+                  <p className="text-red-500 text-sm">
+                    {(measurementMutation.error as Error).message}
+                  </p>
+                )}
               </div>
             </div>
           </div>
