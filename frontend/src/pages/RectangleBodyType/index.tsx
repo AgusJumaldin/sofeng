@@ -3,13 +3,19 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import image7 from "@/assets/RectangleBodyType/7.png";
+import image0 from "@/assets/RectangleBodyType/0.png";
 import image1 from "@/assets/RectangleBodyType/1.png";
 import image2 from "@/assets/RectangleBodyType/2.png";
 import image3 from "@/assets/RectangleBodyType/3.png";
 import image4 from "@/assets/RectangleBodyType/4.png";
 import image5 from "@/assets/RectangleBodyType/5.png";
 import image6 from "@/assets/RectangleBodyType/6.png";
+import image7 from "@/assets/RectangleBodyType/7.png";
+import image8 from "@/assets/RectangleBodyType/8.png";
+import image9 from "@/assets/RectangleBodyType/9.png";
+import image10 from "@/assets/RectangleBodyType/10.png";
+import image11 from "@/assets/RectangleBodyType/11.png";
+import image12 from "@/assets/RectangleBodyType/12.png";
 
 const RectangleBodyType = () => {
   const navigate = useNavigate();
@@ -50,6 +56,42 @@ const RectangleBodyType = () => {
       price: "IDR 249.900",
       image: image6,
 	  url: "https://colorbox.co.id/products/ruffle-tiered-mini-skirt-beige-24i?_pos=1&_sid=19da98c95&_ss=r"
+    },
+     {
+      name: "Button Up Off Shoulder Top",
+      price: "IDR 207.920",
+      image: image7,
+	  url: "https://colorbox.co.id/products/button-up-off-shoulder-top-ecru-25h?_pos=2&_sid=448d9a127&_ss=r"
+    },
+     {
+      name: "Printed Ruched Cami Top",
+      price: "IDR 47.970",
+      image: image8,
+	  url: "https://colorbox.co.id/products/printed-ruched-cami-top-multicolor-24k?_pos=1&_sid=804df3e23&_ss=r"
+    },
+     {
+      name: "Ruffled Sleeveless Blouse",
+      price: "IDR 67.455",
+      image: image9,
+	  url: "https://colorbox.co.id/products/ruffled-sleeveless-blouse-taupe-25f?_pos=4&_sid=1456d7ce6&_ss=r"
+    },
+     {
+      name: "Elastic Cargo Pants",
+      price: "IDR 209.930",
+      image: image10,
+	  url: "https://colorbox.co.id/products/elastic-cargo-pants-dark-grey-25g?_pos=6&_sid=c508586cf&_ss=r"
+    },
+     {
+      name: "Regular Fit Flare Denim Pants",
+      price: "IDR 230.930",
+      image: image11,
+	  url: "https://colorbox.co.id/products/regular-fit-flare-denim-pants-lt-blue-25g"
+    },
+     {
+      name: "Balloon Fit Denim Pants",
+      price: "IDR 148.455",
+      image: image12,
+	  url: "https://colorbox.co.id/products/balloon-fit-denim-pants-med-blue-25e?_pos=1&_sid=fedbd7a0a&_ss=r"
     }
   ];
 const chunkProducts = (arr, size) => {
@@ -75,7 +117,7 @@ const chunkProducts = (arr, size) => {
       <section className="container mx-auto px-6 mb-12">
         <div className="bg-muted/20 rounded-lg p-8 flex justify-center">
           <img
-            src={image7}
+            src={image0}
             alt="Rectangle Body Type"
             className="w-full rounded-lg"
           />

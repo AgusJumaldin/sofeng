@@ -3,13 +3,19 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import image7 from "@/assets/InvertedTriangleBodyType/7.png";
+import image0 from "@/assets/InvertedTriangleBodyType/0.png";
 import image1 from "@/assets/InvertedTriangleBodyType/1.png";
 import image2 from "@/assets/InvertedTriangleBodyType/2.png";
 import image3 from "@/assets/InvertedTriangleBodyType/3.png";
 import image4 from "@/assets/InvertedTriangleBodyType/4.png";
 import image5 from "@/assets/InvertedTriangleBodyType/5.png";
 import image6 from "@/assets/InvertedTriangleBodyType/6.png";
+import image7 from "@/assets/InvertedTriangleBodyType/7.png";
+import image8 from "@/assets/InvertedTriangleBodyType/8.png";
+import image9 from "@/assets/InvertedTriangleBodyType/9.png";
+import image10 from "@/assets/InvertedTriangleBodyType/10.png";
+import image11 from "@/assets/InvertedTriangleBodyType/11.png";
+import image12 from "@/assets/InvertedTriangleBodyType/12.png";
 
 const InvertedTriangleBodyType = () => {
   const navigate = useNavigate();
@@ -50,6 +56,42 @@ const InvertedTriangleBodyType = () => {
       price: "IDR 199.900",
       image: image5,
 	  url: "https://colorbox.co.id/products/box-pleated-mini-skort-dark-brown-25h?_pos=3&_sid=9ac6c2fa9&_ss=r"
+    },
+    {
+      name: "Halter Neck Sleeveless Top",
+      price: "IDR 134.910",
+      image: image7,
+	  url: "https://colorbox.co.id/products/halter-neck-sleeveless-top-off-white-25j?_pos=2&_sid=68b03348c&_ss=r"
+    },
+    {
+      name: "Ruched Short Sleeve Blouse",
+      price: "IDR 67.455",
+      image: image8,
+	  url: "https://colorbox.co.id/products/ruched-short-sleeve-blouse-off-white-25f?_pos=75&_sid=4d984c291&_ss=r"
+    },
+    {
+      name: "Tied Front Popcorn Cardigan",
+      price: "IDR 233.910",
+      image: image9,
+	  url: "https://colorbox.co.id/collections/cardigans/products/tied-front-popcorn-cardigan-beige-25i"
+    },
+    {
+      name: "Wide Leg Woven Pants",
+      price: "IDR 206.910",
+      image: image10,
+	  url: "https://colorbox.co.id/products/wide-leg-woven-pants-lt-grey-25i?_pos=5&_sid=427411dc6&_ss=r"
+    },
+    {
+      name: "Lace Details Wide Leg Pants",
+      price: "IDR 207.920",
+      image: image11,
+	  url: "https://colorbox.co.id/products/lace-details-wide-leg-pants-black-25h?_pos=17&_sid=427411dc6&_ss=r"
+    },
+    {
+      name: "Wide Leg Stripes Roll Up Pants",
+      price: "IDR 229.900",
+      image: image12,
+	  url: "https://colorbox.co.id/products/wide-leg-stripes-roll-up-pants-lt-grey-25k?_pos=20&_sid=427411dc6&_ss=r"
     }
   ];
 const chunkProducts = (arr, size) => {
@@ -75,7 +117,7 @@ const chunkProducts = (arr, size) => {
       <section className="container mx-auto px-6 mb-12">
         <div className="bg-muted/20 rounded-lg p-8 flex justify-center">
           <img
-            src={image7}
+            src={image0}
             alt="Inverted Triangle Body Type"
             className="w-full rounded-lg"
           />

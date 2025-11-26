@@ -106,18 +106,18 @@ const Scan = () => {
       <Header />
 
       <main className="flex-1">
-        <div className="w-full max-w-5xl mx-auto px-6 py-8">
+        <div className="w-full max-w-5xl mx-auto px-6 pb-8 py-16">
 		<div className="max-w-7xl mx-auto text-left mb-10">
-  <h2 className="text-3xl font-zenkaku text-[#2E2E2E] text-bold mb-3">
+  <h2 className="text-5xl font-zenkaku text-[#2E2E2E] font-extrabold mb-4">
     Measure, Visualize, Understand
   </h2>
-  <p className="text-[#454545] font-merriweather leading-relaxed">
+  <p className="text-[#454545] font-merriweathersans text-l leading-relaxed mb-8">
     Set your shoulder, bust, waist, and hip measurements to see your real-time body model update instantly. 
     Once complete, we’ll identify your body type and recommend styles that celebrate your unique shape.
   </p>
 </div>
 
-          <div className="bg-gray-200 py-12 px-8">
+          <div className="bg-gray-200 py-12 px-8 mb-20">
             <div className="max-w-6xl mx-auto grid lg:grid-cols-[350px,1fr] gap-12 items-start">
               {/* 3D Model Section */}
               <div className="bg-[#3a3a3a] h-[500px] flex items-center justify-center rounded-lg overflow-hidden">

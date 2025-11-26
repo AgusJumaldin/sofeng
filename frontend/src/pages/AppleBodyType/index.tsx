@@ -3,13 +3,19 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import image7 from "@/assets/AppleBodyType/7.png";
+import image0 from "@/assets/AppleBodyType/0.png";
 import image1 from "@/assets/AppleBodyType/1.png";
 import image2 from "@/assets/AppleBodyType/2.png";
 import image3 from "@/assets/AppleBodyType/3.png";
 import image4 from "@/assets/AppleBodyType/4.png";
 import image5 from "@/assets/AppleBodyType/5.png";
 import image6 from "@/assets/AppleBodyType/6.png";
+import image7 from "@/assets/AppleBodyType/7.png";
+import image8 from "@/assets/AppleBodyType/8.png";
+import image9 from "@/assets/AppleBodyType/9.png";
+import image10 from "@/assets/AppleBodyType/10.png";
+import image11 from "@/assets/AppleBodyType/11.png";
+import image12 from "@/assets/AppleBodyType/12.png";
 
 const AppleBodyType = () => {
   const navigate = useNavigate();
@@ -34,10 +40,10 @@ const AppleBodyType = () => {
 	  url: "https://colorbox.co.id/products/front-ruched-short-sleeve-shirt-black-25h?_pos=3&_sid=b09fb34e3&_ss=r"
     },
     {
-      name: "Oversized Front Tie Cardigan",
-      price: "IDR 299.900",
+      name: "Side Ruched Short Sleeve Mini Dress",
+      price: "IDR 89.955",
       image: image2,
-	  url: "https://colorbox.co.id/products/oversized-front-tie-cardigan-grey-25i?_pos=1&_sid=5c5fe287c&_ss=r"
+	  url: "https://colorbox.co.id/products/side-ruched-short-sleeve-mini-dress-aqua-25f?_pos=50&_sid=1cc1e2b5c&_ss=r"
     },
     {
       name: "A-Line Denim Midi Skirt",
@@ -50,6 +56,42 @@ const AppleBodyType = () => {
       price: "IDR 329.900",
       image: image6,
 	  url: "https://colorbox.co.id/products/regular-fit-flare-denim-pants-med-blue-25g?_pos=1&_sid=ee7e84e50&_ss=r"
+    },
+    {
+      name: "Oversized Front Tie Cardigan",
+      price: "IDR 299.900",
+      image: image7,
+	  url: "https://colorbox.co.id/products/oversized-front-tie-cardigan-grey-25i?_pos=1&_sid=5c5fe287c&_ss=r"
+    },
+    {
+      name: "Long Sleeve Graphic Jersey",
+      price: "IDR 143.920",
+      image: image8,
+	  url: "https://colorbox.co.id/collections/tops/products/long-sleeve-graphic-jersey-navy-25h"
+    },
+    {
+      name: "Long Sleeve Retro Cardigan",
+      price: "IDR 209.930",
+      image: image9,
+	  url: "https://colorbox.co.id/collections/cardigans/products/long-sleeve-retro-cardigan-navy-25g"
+    },
+    {
+      name: "Basic Wide Leg Denim Pants Blue",
+      price: "IDR 229.900",
+      image: image10,
+	  url: "https://colorbox.co.id/products/basic-wide-leg-denim-pants-blue-24o?_pos=1&_sid=c30b5f2d2&_ss=r"
+    },
+    {
+      name: "Wide Leg Drawstring Pants",
+      price: "IDR 183.920",
+      image: image11,
+	  url: "https://colorbox.co.id/products/wide-leg-drawstring-pants-black-25h?_pos=1&_sid=c124b154c&_ss=r"
+    },
+    {
+      name: "Fold Over Long Pants with Tie",
+      price: "269.910",
+      image: image12,
+	  url: "https://colorbox.co.id/products/fold-over-long-pants-with-tie-off-white-25i?pr_prod_strat=jac&pr_rec_id=db79fa94d&pr_rec_pid=9090773418242&pr_ref_pid=9090772861186&pr_seq=uniform"
     }
   ];
 const chunkProducts = (arr, size) => {
@@ -75,7 +117,7 @@ const chunkProducts = (arr, size) => {
       <section className="container mx-auto px-6 mb-12">
         <div className="bg-muted/20 rounded-lg p-8 flex justify-center">
           <img
-            src={image7}
+            src={image0}
             alt="Apple Body Type"
             className="w-full rounded-lg"
           />
