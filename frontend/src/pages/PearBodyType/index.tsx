@@ -3,13 +3,19 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import image7 from "@/assets/PearBodyType/7.png";
+import image0 from "@/assets/PearBodyType/0.png";
 import image1 from "@/assets/PearBodyType/1.png";
 import image2 from "@/assets/PearBodyType/2.png";
 import image3 from "@/assets/PearBodyType/3.png";
 import image4 from "@/assets/PearBodyType/4.png";
 import image5 from "@/assets/PearBodyType/5.png";
 import image6 from "@/assets/PearBodyType/6.png";
+import image7 from "@/assets/PearBodyType/7.png";
+import image8 from "@/assets/PearBodyType/8.png";
+import image9 from "@/assets/PearBodyType/9.png";
+import image10 from "@/assets/PearBodyType/10.png";
+import image11 from "@/assets/PearBodyType/11.png";
+import image12 from "@/assets/PearBodyType/12.png";
 
 const PearBodyType = () => {
   const navigate = useNavigate();
@@ -51,6 +57,42 @@ const PearBodyType = () => {
       price: "IDR 299.900",
       image: image6,
 	  url: "https://colorbox.co.id/products/regular-fit-basic-short-pants-sage-25g"
+    },
+    {
+      name: "Embroidered Puff Sleeve Blouse",
+      price: "IDR 179.910",
+      image: image7,
+	  url: "https://colorbox.co.id/products/embroidered-puff-sleeve-blouse-off-white-25i?_pos=2&_sid=f8077229b&_ss=r"
+    },
+    {
+      name: "Button Up Short Sleeve Blouse",
+      price: "IDR 134.910",
+      image: image8,
+	  url: "https://colorbox.co.id/products/button-up-short-sleeve-blouse-lt-blue-25i?_pos=26&_sid=9f274e944&_ss=r"
+    },
+    {
+      name: "Pocket Crop Denim Shirt",
+      price: "IDR 134.955",
+      image: image9,
+	  url: "https://colorbox.co.id/products/pocket-crop-denim-shirt-med-blue-25f?_pos=12&_sid=a29084d63&_ss=r"
+    },
+    {
+      name: "A-Line Denim Midi Skirt",
+      price: "IDR 195.930",
+      image: image10,
+	  url: "hhttps://colorbox.co.id/products/a-line-denim-midi-skirt-lt-blue-25g?_pos=33&_sid=d378bc4d2&_ss=r"
+    },
+    {
+      name: "Denim Pants with Side Fringe Details",
+      price: "IDR 287.920",
+      image: image11,
+	  url: "https://colorbox.co.id/products/denim-pants-with-side-fringe-details-med-blue-25h?_pos=1&_sid=8a0572d70&_ss=r"
+    },
+    {
+      name: "Tied Waist Wide Leg Denim Pant",
+      price: "IDR 296.910",
+      image: image12,
+	  url: "https://colorbox.co.id/products/tied-waist-wide-leg-denim-pants-grey-25j?_pos=1&_sid=bd63f812d&_ss=r"
     }
   ];
 const chunkProducts = (arr, size) => {
@@ -76,7 +118,7 @@ const chunkProducts = (arr, size) => {
       <section className="container mx-auto w-[1278px] h-[639px]">
         <div className="bg-muted/20 rounded-lg p-8 flex justify-center">
           <img
-            src={image7}
+            src={image0}
             alt="Pear Body Type"
             className="w-full rounded-lg"
           />

@@ -30,7 +30,7 @@ const BodyTypes = () => {
     {
       id: "rectangle",
       name: "Rectangle Body Type",
-	  description: "The apple body type carries more weight around the midsection, with a fuller bust and narrower hips. This shape looks best in styles that create balance and draw attention to the neckline or legs.",
+	  description: "The rectangle body type features a straight silhouette with balanced bust, waist, and hip measurements. This shape looks best in styles that create curves and add definition to the waistline, enhancing natural lines with structured or shapely pieces.",
 	  image: image3
     },
     {
@@ -53,11 +53,11 @@ const BodyTypes = () => {
       <Header />
 
       {/* Main Content */}
-      <section className="container mx-auto px-6 py-16">
-<h1 className="font-zenkaku text-[#2E2E2E] text-6xl font-bold text-foreground mb-10">
+      <section className="w-full max-w-5xl mx-auto px-0 pt-16 pb-8">
+<h1 className="font-zenkaku text-[#2E2E2E] text-5xl font-bold text-foreground mb-10">
           Learn more about your Body Types
         </h1>
-        <p className="font-inter text-muted-foreground text-2xl mb-12">
+        <p className="font-inter text-[#000000]/75 mb-12">
           Discover the unique shape that defines you and learn how it influences <br /> your perfect fit. Explore each body type to find styles that complement<br /> your natural form effortlessly.
         </p>
 
@@ -69,16 +69,16 @@ const BodyTypes = () => {
 >
 
   {/* LEFT TEXT */}
-  <div className="md:w-1/2 p-8 md:p-12 relative z-10">
-    <h2 className="font-merriweathersans text-4xl font-bold text-foreground mb-4">
-      {type.name}
-    </h2>
-    <p className="font-inter text-2xl text-muted-foreground mb-10 leading-relaxed">
-      {type.description}
-    </p>
+ <div className="md:w-1/2 p-8 md:p-12 relative z-10">
+  <h2 className="font-merriweathersans text-[#000000]/75 text-3xl font-bold mb-4">
+    {type.name}
+  </h2>
+  <p className="font-inter mb-8 text-[#000000]/75 leading-relaxed text-justify">
+    {type.description}
+  </p>
     <Button
       onClick={() => navigate(`/body-types/${type.id}`)}
-      className="bg-[hsl(0,65%,30%)] hover:bg-[hsl(0,65%,25%)] text-white text-2xl px-10 py-10"
+      className="bg-[hsl(0,65%,30%)] hover:bg-[hsl(0,65%,25%)] text-[#F7F7F7] px-6 py-6"
     >
       Learn More
     </Button>
@@ -104,24 +104,43 @@ const BodyTypes = () => {
         </div>
       </section>
 
-      {/* About Section */}
-	  <section className="bg-muted/30 px-4 py-16">
-  <div className="w-full px-0">
-    <div className="grid md:grid-cols-2 items-center w-full">
-      <div className="pl-6 md:pl-40">
-        <h2 className="text-6xl font-merriweathersans font-bold text-[#454545] mb-4">About The Project</h2>
-        <h3 className="text-4xl font-inter text-[#454545] mb-6">Smart Fashion Fit, Powered by Technology</h3>
-        <p className="text-xl text-[#454545] mb-4">
-          This student-developed system helps users identify their body <br /> type and explore clothing styles that flatter their shape. With 3D <br /> visualization and intelligent analysis, it offers a personalized,<br /> body-positive experience for more confident shopping.
+{/* About The Collaboration Section */}
+<section className="bg-muted/30 px-4 py-8 mt-10 mb-24">
+  <div className="w-full max-w-5xl mx-auto px-0">
+    <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+      
+      {/* Left Text Block */}
+      <div>
+        <h2 className="text-[46px] font-merriweathersans font-bold text-[#454545] mb-4">
+          About The Project
+        </h2>
+        <h3 className="text-[24px] font-inter text-[#454545] mb-6">
+          Smart Fashion Fit, Powered by Technology
+        </h3>
+
+        <p className="text-[16px] text-[#454545] mb-4 leading-relaxed">
+          This student-developed system helps users identify their body type and
+          explore clothing styles that flatter their shape. With 3D visualization
+          and intelligent analysis, it offers a personalized, body-positive
+          experience for more confident shopping.
         </p>
-        <p className="text-xl text-[#454545]">
-          Outfit inspirations are sourced from Colorbox’s public collection.<br /> This project is not affiliated with Colorbox; recommendations are <br /> for styling reference and educational purposes.
+
+        <p className="text-[16px] text-[#454545] leading-relaxed">
+          Outfit inspirations are sourced from Colorbox’s public collection.
+          This project is not affiliated with Colorbox; recommendations are for
+          styling reference and educational purposes.
         </p>
       </div>
 
-      <div className="flex justify-center">
-        <img src={image7} alt="Colorbox Logo" />
+      {/* Right Image */}
+      <div className="flex justify-center md:justify-end">
+        <img 
+          src={image7} 
+          alt="Colorbox Logo"
+          className="max-w-[380px] w-full object-contain"
+        />
       </div>
+
     </div>
   </div>
 </section>

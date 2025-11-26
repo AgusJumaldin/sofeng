@@ -3,13 +3,19 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import image7 from "@/assets/HourglassBodyType/7.png";
+import image0 from "@/assets/HourglassBodyType/0.png";
 import image1 from "@/assets/HourglassBodyType/1.png";
 import image2 from "@/assets/HourglassBodyType/2.png";
 import image3 from "@/assets/HourglassBodyType/3.png";
 import image4 from "@/assets/HourglassBodyType/4.png";
 import image5 from "@/assets/HourglassBodyType/5.png";
 import image6 from "@/assets/HourglassBodyType/6.png";
+import image7 from "@/assets/HourglassBodyType/7.png";
+import image8 from "@/assets/HourglassBodyType/8.png";
+import image9 from "@/assets/HourglassBodyType/9.png";
+import image10 from "@/assets/HourglassBodyType/10.png";
+import image11 from "@/assets/HourglassBodyType/11.png";
+import image12 from "@/assets/HourglassBodyType/12.png";
 
 
 const HourglassBodyType = () => {
@@ -51,7 +57,43 @@ const HourglassBodyType = () => {
       price: "IDR 299.900",
       image: image6,
 	  url: "https://colorbox.co.id/products/contrast-rib-mini-dress-black-25h?_pos=1&_sid=3b8c0a31c&_ss=r"
-    }
+    },
+    {
+      name: "Button Up Long Sleeve Top",
+      price: "IDR 80.955",
+      image: image7,
+	  url: "https://colorbox.co.id/products/button-up-long-sleeve-top-multicolor-25e?_pos=1&_sid=49e837784&_ss=r"
+    },
+    {
+      name: "Oversized Denim Shirt with Pocket",
+      price: "IDR 206.910",
+      image: image8,
+	  url: "https://colorbox.co.id/products/oversized-denim-shirt-with-pocket-dark-blue-25i?_pos=3&_sid=787a19f98&_ss=r"
+    },
+    {
+      name: "One Shoulder Knit Top",
+      price: "IDR 59.970",
+      image: image9,
+	  url: "https://colorbox.co.id/products/one-shoulder-knit-top-black-24l?_pos=27&_sid=b10abede4&_ss=r"
+    },
+    {
+      name: "Side Ruched Fitted Mini Dress",
+      price: "IDR 179.910",
+      image: image10,
+	  url: "https://colorbox.co.id/products/side-ruched-fitted-mini-dress-grey-25i?_pos=5&_sid=b7a756462&_ss=r"
+    },
+    {
+      name: "Fitted Short Sleeve Mini Dress",
+      price: "IDR 139.930",
+      image: image11,
+	  url: "https://colorbox.co.id/products/fitted-short-sleeve-mini-dress-taupe-25g?_pos=4&_sid=1b4427538&_ss=r"
+    },
+    {
+      name: "Ruffle Tiered Mini Skirt",
+      price: "IDR 74.970",
+      image: image12,
+	  url: "https://colorbox.co.id/products/ruffle-tiered-mini-skirt-beige-24i?_pos=10&_sid=0b2f5acb6&_ss=r"
+    },
   ];
 const chunkProducts = (arr, size) => {
   const res = [];
@@ -77,7 +119,7 @@ const chunkProducts = (arr, size) => {
       <section className="container mx-auto w-[1278px] h-[639px]">
         <div className="bg-muted/20 rounded-lg p-8 flex justify-center">
           <img
-            src={image7}
+            src={image0}
             alt="Hourglass Body Type"
             className="w-full rounded-lg"
           />

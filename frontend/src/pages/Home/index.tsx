@@ -120,7 +120,7 @@ const Landing = () => {
       </section>
 
 {/* How Does It Work Section */}
-<section className="w-full py-20 bg-white">
+<section className="w-full pt-20 pb-10 bg-white">
   <div className="w-full max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-stretch">
 
     {/* LEFT TEXT BLOCK */}
@@ -192,7 +192,7 @@ const Landing = () => {
 </section>
 
 {/* About The Collaboration Section */}
-<section className="bg-muted/30 px-4 py-16 mt-24 mb-24">
+<section className="bg-muted/30 px-4 py-16 mt-10 mb-20">
   <div className="w-full max-w-5xl mx-auto px-0">
     <div className="grid md:grid-cols-2 gap-12 items-center w-full">
       
