@@ -57,7 +57,7 @@ const Landing = () => {
 
   {/* Text Section */}
   <div className="mb-12">
-    <h1 className="font-zenkaku text-5xl font-bold text-[#2E2E2E] mb-6">
+    <h1 className="font-zenkaku text-5xl font-bold text-[#2E2E2E] mb-4">
       HerShape x COLORBOX
     </h1>
     <h2 className="font-merriweathersans text-3xl text-[#000000]/75 mb-6">
@@ -115,6 +115,8 @@ const Landing = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
+			<CarouselPrevious className="-left-5" />
+			<CarouselNext className="-right-5" />
           </Carousel>
         </div>
       </section>
