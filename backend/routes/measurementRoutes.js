@@ -4,9 +4,7 @@ import Measurement from "../models/Measurement.js";
 
 const router = express.Router();
 
-// ======================
 // BODY TYPE CALCULATOR
-// ======================
 function calculateBodyType({ shoulders, bust, waist, hips }) {
   shoulders = Number(shoulders);
   bust = Number(bust);
@@ -56,9 +54,7 @@ function calculateBodyType({ shoulders, bust, waist, hips }) {
 
 
 
-// ======================
 // GET /api/measurements
-// ======================
 router.get("/", async (req, res) => {
   try {
     const measurements = await Measurement.find().sort({ createdAt: -1 });
@@ -70,9 +66,7 @@ router.get("/", async (req, res) => {
 });
 
 
-// ======================
 // POST /api/measurements
-// ======================
 router.post("/", async (req, res) => {
   try {
     const { shoulders, bust, waist, hips, sessionId } = req.body;
