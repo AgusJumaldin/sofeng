@@ -57,7 +57,7 @@ const Landing = () => {
 
   {/* Text Section */}
   <div className="mb-12">
-    <h1 className="font-zenkaku text-5xl font-bold text-[#2E2E2E] mb-4">
+    <h1 className="font-zenkaku text-5xl font-bold text-[#2E2E2E] mb-6">
       HerShape x COLORBOX
     </h1>
     <h2 className="font-merriweathersans text-3xl text-[#000000]/75 mb-6">
