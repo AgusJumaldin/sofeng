@@ -196,8 +196,8 @@ const chunkProducts = (arr, size) => {
         ))}
 
       </CarouselContent>
-	  <CarouselPrevious className="-left-5" />
-	  <CarouselNext className="-right-5" />
+	  <CarouselPrevious className="-left-10 top-[45%] -translate-y-0" />
+	  <CarouselNext className="-right-0 top-[45%] -translate-y-0" />
     </Carousel>
   </div>
 </section>

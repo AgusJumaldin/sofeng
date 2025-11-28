@@ -115,7 +115,7 @@ const Landing = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-			<CarouselPrevious className="-left-5" />
+			<CarouselPrevious className="-left-5 " />
 			<CarouselNext className="-right-5" />
           </Carousel>
         </div>

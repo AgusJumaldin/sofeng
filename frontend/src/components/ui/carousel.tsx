@@ -171,23 +171,23 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
 
     return (
       <Button
-        ref={ref}
-        variant={variant}
-        size={size}
-        className={cn(
-          "absolute h-8 w-8 rounded-full",
-          orientation === "horizontal"
-            ? "-left-12 top-1/2 -translate-y-1/2"
-            : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-          className,
-        )}
-        disabled={!canScrollPrev}
-        onClick={scrollPrev}
-        {...props}
-      >
-        <ArrowLeft className="h-4 w-4" />
-        <span className="sr-only">Previous slide</span>
-      </Button>
+  ref={ref}
+  variant={variant}
+  size={size}
+  className={cn(
+    "absolute h-12 w-12 rounded-full flex items-center justify-center border border-[#E0E0E0] bg-white shadow-sm",
+    orientation === "horizontal"
+      ? "-right-16 top-1/2 -translate-y-1/2"
+      : "-bottom-16 left-1/2 -translate-x-1/2 rotate-90",
+    className,
+  )}
+  disabled={!canScrollPrev}
+  onClick={scrollPrev}
+  {...props}
+>
+  <span className="text-4xl font-light leading-none -translate-y-[4px] -translate-x-[2px] text-[#1A1A1A]">{"<"}</span>
+  <span className="sr-only">Next slide</span>
+</Button>
     );
   },
 );
@@ -199,23 +199,24 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
 
     return (
       <Button
-        ref={ref}
-        variant={variant}
-        size={size}
-        className={cn(
-          "absolute h-8 w-8 rounded-full",
-          orientation === "horizontal"
-            ? "-right-12 top-1/2 -translate-y-1/2"
-            : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-          className,
-        )}
-        disabled={!canScrollNext}
-        onClick={scrollNext}
-        {...props}
-      >
-        <ArrowRight className="h-4 w-4" />
-        <span className="sr-only">Next slide</span>
-      </Button>
+  ref={ref}
+  variant={variant}
+  size={size}
+  className={cn(
+    "absolute h-12 w-12 rounded-full flex items-center justify-center border border-[#E0E0E0] bg-white shadow-sm",
+    orientation === "horizontal"
+      ? "-right-16 top-1/2 -translate-y-1/2"
+      : "-bottom-16 left-1/2 -translate-x-1/2 rotate-90",
+    className,
+  )}
+  disabled={!canScrollNext}
+  onClick={scrollNext}
+  {...props}
+>
+  <span className="text-4xl font-light leading-none -translate-y-[4px] translate-x-[2px] text-[#1A1A1A]">{">"}</span>
+  <span className="sr-only">Next slide</span>
+</Button>
+
     );
   },
 );
