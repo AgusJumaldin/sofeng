@@ -9,8 +9,10 @@ import { useMutation } from "@tanstack/react-query";
 
 type Unit = "imperial" | "metric";
 
+// Base URL for the measurement API
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
+// Current measurements in the *active* unit system
 const Scan = () => {
   const navigate = useNavigate();
   const [unit, setUnit] = useState<Unit>("metric");
@@ -20,7 +22,7 @@ const Scan = () => {
     waist: 71,
     hips: 97,
   });
-
+// unit toggle logic
   const toggleUnit = () => {
     const isCurrentlyImperial = unit === "imperial";
     setUnit(isCurrentlyImperial ? "metric" : "imperial");
@@ -43,16 +45,16 @@ const Scan = () => {
       });
     }
   };
-
+// Helper to update a single measurement field
   const updateMeasurement = (key: keyof typeof measurements, value: number) => {
     setMeasurements((prev) => ({ ...prev, [key]: value }));
   };
-
+// Slider config depends on unit
   const bodyConfig =
     unit === "imperial"
       ? { min: 20, max: 60, unit: "inches" }
       : { min: 20, max: 150, unit: "cm" };
-
+// Mutation to send measurements to backend
   const measurementMutation = useMutation({
     mutationKey: ["create-measurement"],
     mutationFn: async () => {
@@ -82,7 +84,7 @@ const Scan = () => {
     onSuccess: (data: any) => {
       console.log("Saved measurement:", data);
       const bodyType = data.bodyType as string;
-
+// Navigate based on detected body type
       if (bodyType === "hourglass") {
         navigate("/body-types/hourglass", { state: { measurement: data } });
       } else if (bodyType === "pear") {
@@ -104,7 +106,7 @@ const Scan = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-
+{/*Main Content*/}
       <main className="flex-1">
         <div className="w-full max-w-5xl mx-auto px-6 pb-8 py-16">
 		<div className="max-w-7xl mx-auto text-left mb-10">
@@ -134,7 +136,7 @@ const Scan = () => {
                     Switch to {unit === "imperial" ? "Metric" : "Imperial"}
                   </Button>
                 </div>
-
+                {/* Shoulder Slider */}
                 <MeasurementSlider
                   label="Shoulder"
                   value={measurements.shoulder}
@@ -143,7 +145,7 @@ const Scan = () => {
                   max={bodyConfig.max}
                   onChange={(value) => updateMeasurement("shoulder", value)}
                 />
-
+                {/* Bust Slider */}
                 <MeasurementSlider
                   label="Bust"
                   value={measurements.bust}
@@ -152,7 +154,7 @@ const Scan = () => {
                   max={bodyConfig.max}
                   onChange={(value) => updateMeasurement("bust", value)}
                 />
-
+                {/* Waist Slider */}
                 <MeasurementSlider
                   label="Waist"
                   value={measurements.waist}
@@ -161,7 +163,7 @@ const Scan = () => {
                   max={bodyConfig.max}
                   onChange={(value) => updateMeasurement("waist", value)}
                 />
-
+                {/* Hips Slider */}
                 <MeasurementSlider
                   label="Hips"
                   value={measurements.hips}
@@ -170,7 +172,7 @@ const Scan = () => {
                   max={bodyConfig.max}
                   onChange={(value) => updateMeasurement("hips", value)}
                 />
-
+                {/* Analyze / submit button */}
                 <Button
                   onClick={() => measurementMutation.mutate()}
                   disabled={measurementMutation.isPending}
@@ -180,7 +182,7 @@ const Scan = () => {
                     ? "Analyzing..."
                     : "Calculate Body Type"}
                 </Button>
-
+                {/* Error message (if API call fails) */}
                 {measurementMutation.isError && (
                   <p className="text-red-500 text-sm">
                     {(measurementMutation.error as Error).message}
@@ -191,7 +193,6 @@ const Scan = () => {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );

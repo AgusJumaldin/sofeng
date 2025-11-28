@@ -13,7 +13,7 @@ import image7 from "@/assets/BodyTypes/7.png";
 
 const BodyTypes = () => {
   const navigate = useNavigate();
-
+//array for the bodytype card
   const bodyTypes = [
     {
       id: "hourglass",
@@ -84,14 +84,14 @@ const BodyTypes = () => {
     </Button>
   </div>
 <div className="md:w-1/2 relative min-h-[300px] md:min-h-[400px]">
-                {/* GRADIENT OVERLAY (image6) - Placed behind the main image */}
+                {/* GRADIENT OVERLAY (image6) */}
                 <img
                   src={image6}
                   alt="gradient overlay"
                   className="absolute inset-0 w-full h-full object-cover z-20"
                 />
                 
-                {/* BODY TYPE IMAGE - Now properly positioned and sized */}
+                {/* BODY TYPE IMAGE */}
                 <img
                   src={type.image}
                   alt={type.name}

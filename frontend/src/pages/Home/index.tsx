@@ -15,7 +15,7 @@ import image14 from "@/assets/landing/image14.png";
 
 const Landing = () => {
   const navigate = useNavigate();
-
+//array for carousel
   const bodyTypes = [
     {
       name: "Hourglass",

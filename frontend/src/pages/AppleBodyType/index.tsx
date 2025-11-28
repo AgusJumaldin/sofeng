@@ -19,7 +19,7 @@ import image12 from "@/assets/AppleBodyType/12.png";
 
 const AppleBodyType = () => {
   const navigate = useNavigate();
-
+//product array for carousel
   const products = [
     {
       name: "Oversized Button Up Shirt",
@@ -94,6 +94,7 @@ const AppleBodyType = () => {
 	  url: "https://colorbox.co.id/products/fold-over-long-pants-with-tie-off-white-25i?pr_prod_strat=jac&pr_rec_id=db79fa94d&pr_rec_pid=9090773418242&pr_ref_pid=9090772861186&pr_seq=uniform"
     }
   ];
+//split the array
 const chunkProducts = (arr, size) => {
   const res = [];
   for (let i = 0; i < arr.length; i += size) {

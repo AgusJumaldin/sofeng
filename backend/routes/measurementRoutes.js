@@ -16,7 +16,6 @@ function calculateBodyType({ shoulders, bust, waist, hips }) {
   const waistToBust = waist / bust;
   const waistToHip = waist / hips;
 
-  // Debug biar kamu lihat di terminal
   console.log("CALC BODY TYPE:", {
     shoulders,
     bust,
@@ -28,27 +27,27 @@ function calculateBodyType({ shoulders, bust, waist, hips }) {
     waistToHip,
   });
 
-  // 1) HOURGLASS – pinggang kecil & bust/hips mirip
+  // 1) HOURGLASS
   if (diffBustHips <= 5 && waistToBust <= 0.75 && waistToHip <= 0.75) {
     return "hourglass";
   }
 
-  // 2) PEAR – hips jauh lebih besar dari bust
+  // 2) PEAR 
   if (hips - bust >= 7 && waistToHip <= 0.8) {
     return "pear";
   }
 
-  // 3) INVERTED TRIANGLE – shoulders jauh lebih besar dari hips
+  // 3) INVERTED TRIANGLE
   if (diffShoulderHip >= 7) {
     return "inverted-triangle";
   }
 
-  // 4) APPLE – waist besar, hampir sama dengan bust/hips
+  // 4) APPLE
   if (waistToBust >= 0.85 && waistToHip >= 0.85) {
     return "apple";
   }
 
-  // 5) RECTANGLE – ukuran mirip-mirip
+  // 5) RECTANGLE
   return "rectangle";
 }
 
@@ -71,7 +70,6 @@ router.post("/", async (req, res) => {
   try {
     const { shoulders, bust, waist, hips, sessionId } = req.body;
 
-    // HITUNG bodyType di sini
     const bodyType = calculateBodyType({
       shoulders,
       bust,
@@ -84,7 +82,7 @@ router.post("/", async (req, res) => {
       bust,
       waist,
       hips,
-      bodyType, // <-- masukin di DB
+      bodyType,
       sessionId,
     });
 

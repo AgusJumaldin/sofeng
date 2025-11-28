@@ -19,7 +19,7 @@ import image12 from "@/assets/PearBodyType/12.png";
 
 const PearBodyType = () => {
   const navigate = useNavigate();
-
+//product array for carousel
   const products = [
     {
       name: "Puff Sleeve Blouse with Lace Trim",
@@ -95,6 +95,7 @@ const PearBodyType = () => {
 	  url: "https://colorbox.co.id/products/tied-waist-wide-leg-denim-pants-grey-25j?_pos=1&_sid=bd63f812d&_ss=r"
     }
   ];
+  //split the array into two rows
 const chunkProducts = (arr, size) => {
   const res = [];
   for (let i = 0; i < arr.length; i += size) {

@@ -19,7 +19,7 @@ import image12 from "@/assets/InvertedTriangleBodyType/12.png";
 
 const InvertedTriangleBodyType = () => {
   const navigate = useNavigate();
-
+//product array for carousel
   const products = [
     {
       name: "Two Tone Cropped Cardigan",
@@ -94,6 +94,7 @@ const InvertedTriangleBodyType = () => {
 	  url: "https://colorbox.co.id/products/wide-leg-stripes-roll-up-pants-lt-grey-25k?_pos=20&_sid=427411dc6&_ss=r"
     }
   ];
+  //split the array into two rows
 const chunkProducts = (arr, size) => {
   const res = [];
   for (let i = 0; i < arr.length; i += size) {

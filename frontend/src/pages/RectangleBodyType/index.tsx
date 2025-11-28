@@ -19,7 +19,7 @@ import image12 from "@/assets/RectangleBodyType/12.png";
 
 const RectangleBodyType = () => {
   const navigate = useNavigate();
-
+//product array for carousel
   const products = [
     {
 	  name: "V-Neck Long Sleeve Wrap Blouse",
@@ -94,6 +94,7 @@ const RectangleBodyType = () => {
 	  url: "https://colorbox.co.id/products/balloon-fit-denim-pants-med-blue-25e?_pos=1&_sid=fedbd7a0a&_ss=r"
     }
   ];
+//split the array into two rows
 const chunkProducts = (arr, size) => {
   const res = [];
   for (let i = 0; i < arr.length; i += size) {

@@ -30,7 +30,6 @@ const App = () => (
           <Route path="/body-types/apple" element={<AppleBodyType />} />
           <Route path="/body-types/rectangle" element={<RectangleBodyType />} />
           <Route path="/body-types/inverted-triangle" element={<InvertedTriangleBodyType />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

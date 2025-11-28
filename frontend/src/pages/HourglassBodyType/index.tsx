@@ -20,7 +20,7 @@ import image12 from "@/assets/HourglassBodyType/12.png";
 
 const HourglassBodyType = () => {
   const navigate = useNavigate();
-
+//product array for carousel
   const products = [
     {
       name: "Long Sleeve Off Shouldered Top",
@@ -95,6 +95,7 @@ const HourglassBodyType = () => {
 	  url: "https://colorbox.co.id/products/ruffle-tiered-mini-skirt-beige-24i?_pos=10&_sid=0b2f5acb6&_ss=r"
     },
   ];
+//split the array into two rows
 const chunkProducts = (arr, size) => {
   const res = [];
   for (let i = 0; i < arr.length; i += size) {
